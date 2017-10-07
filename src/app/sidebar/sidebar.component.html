@@ -1,0 +1,80 @@
+<div class="logo">
+    <a  class="simple-text">
+        <div class="logo-img">
+            <img src="./assets/images/logo.png"/>
+        </div>
+        BaliFood
+    </a>
+</div>
+
+<div class="sidebar-wrapper ps-container">
+    <div class="nav-container">
+        <ul class="nav">
+            <li>
+                <a data-toggle="collapse" href="#userMangement"  aria-expanded="false" skipLocationChange='true'>
+                    <i class="material-icons">group</i>
+                    <p>User Management</p>
+                </a>
+                <div class="collapse" id="userMangement" aria-expanded="false">
+                    <ul class="nav">
+                        <li routerLinkActive="active">
+                            <a routerLink="/dashboard/userMangement" skipLocationChange='true' (click)="openDialog()">
+                                <span class="sidebar-normal">Status Management</span>
+                            </a>
+                        </li>
+                        <li routerLinkActive="active" class="{{activeUser}}" >
+                            <a  (click)="openDialog('delete')" >
+                                <span class="sidebar-normal">Delete Users</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li routerLinkActive="active" >
+                <a routerLink="/dashboard/recipeMangement" skipLocationChange='true' (click)="openDialog()">
+                    <i class="material-icons">home</i>
+                    <p>Recipe Management</p>
+                </a>
+            </li>
+            <li>
+                <a data-toggle="collapse" href="#generalManagement"  aria-expanded="false" (click)="openDialog()">
+                    <i class="material-icons">account_circle</i>
+                    <p>General Management</p>
+                </a>
+                <div class="collapse" id="generalManagement" aria-expanded="false">
+                    <ul class="nav">
+                        <li routerLinkActive="active" >
+                            <a routerLink="/dashboard/aboutUsManagement" skipLocationChange='true' (click)="openDialog()">
+                                <span class="sidebar-normal">Manage About-Us</span>
+                            </a>
+                        </li>
+                        <li routerLinkActive="active" >
+                            <a  (click)="openDialog()">
+                                <span class="sidebar-normal">Manage Contact-us</span>
+                            </a>
+                        </li>
+                        <li routerLinkActive="active" >
+                            <a  (click)="openDialog()">
+                                <span class="sidebar-normal">Manage FAQ's</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+           <!--  <li routerLinkActive="active" >
+                <a routerLink="/dashboard/contentManagement">
+                    <i class="material-icons">content_copy</i>
+                    <p>Content Management</p>
+                </a>
+            </li> -->
+             <li routerLinkActive="active"  >
+                <a routerLink="/dashboard/reportManagement" skipLocationChange='true'  (click)="openDialog()">
+                    <i class="material-icons">report</i>
+                    <p>Report Management</p>
+                </a>
+            </li>
+
+            
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,759 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* You can add global styles to this file, and also import other style files */
+
+
+
+body{
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+ul{
+  list-style: none;
+}
+
+.table-divvh {
+  width: 100%;
+  height: 100vh;
+  display: table;
+}
+.table-cell-div {
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.dshbrd-table .profile-img{
+  max-width: 80px;
+  display: inline-block;
+}
+.dshbrd-table table thead th, .dshbrd-table table tbody td{
+  text-align: center;
+}
+
+/*.dshbrd-table table thead th{
+  color: #d50000;
+}*/
+.header-sec .navbar-nav > li{
+  margin-left: 10px;
+}
+.navbar .header-sec .navbar-nav > li.cus-list > a.btn{
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.navbar .navbar-nav > li > a.btn.btn-yellow{
+  background-color: #FECD08;
+  color: #555;
+}
+.navbar .navbar-nav > li > a.btn.btn-black{
+  background-color: #333;
+  color: #fff;
+}
+.btn-black{
+  background-color: #333;
+  color: #fff;
+}
+.btn-yellow{
+  background-color: #FECD08;
+  color: #555;
+}
+
+.header-sec .navbar-nav > li.cus-list > a:first-child {
+  border-radius: 4px 0 0 4px;
+  background-color: #FECD08;
+}
+.header-sec .navbar-nav > li.cus-list > a:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+/* perfect-scrollbar v0.6.13 */
+.perfect-scrollbar-on .sidebar .sidebar-wrapper{
+  overflow: hidden;
+}
+.ps-container {
+  -ms-touch-action: auto;
+  touch-action: auto;
+  /* overflow: hidden !important; */
+  -ms-overflow-style: none;
+}
+
+@supports (-ms-overflow-style: none) {
+  .ps-container {
+    overflow: auto !important;
+  }
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .ps-container {
+    overflow: auto !important;
+  }
+}
+.ps-container.ps--active-x > .ps__scrollbar-x-rail,
+.ps-container.ps--active-y > .ps__scrollbar-y-rail {
+  display: block;
+  background-color: transparent;
+}
+
+.ps-container.ps-in-scrolling.ps-x > .ps__scrollbar-x-rail {
+  background-color: #eee;
+  opacity: 0.9;
+}
+
+.ps-container.ps-in-scrolling.ps-x > .ps__scrollbar-x-rail > .ps__scrollbar-x {
+  background-color: #999;
+  height: 11px;
+}
+
+.ps-container.ps-in-scrolling.ps-y > .ps__scrollbar-y-rail {
+  background-color: #eee;
+  opacity: 0.9;
+}
+
+.ps-container.ps-in-scrolling.ps-y > .ps__scrollbar-y-rail > .ps__scrollbar-y {
+  background-color: #999;
+  width: 11px;
+}
+
+.ps-container > .ps__scrollbar-x-rail {
+  display: none;
+  position: absolute;
+  /* please don't change 'position' */
+  opacity: 0;
+  -webkit-transition: background-color .2s linear, opacity .2s linear;
+  -o-transition: background-color .2s linear, opacity .2s linear;
+  -moz-transition: background-color .2s linear, opacity .2s linear;
+  transition: background-color .2s linear, opacity .2s linear;
+  bottom: 0px;
+  /* there must be 'bottom' for ps__scrollbar-x-rail */
+  height: 15px;
+}
+
+.ps-container > .ps__scrollbar-x-rail > .ps__scrollbar-x {
+  position: absolute;
+  /* please don't change 'position' */
+  background-color: #aaa;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, -webkit-border-radius .2s ease-in-out;
+  transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, -webkit-border-radius .2s ease-in-out;
+  -o-transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
+  -moz-transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out, -moz-border-radius .2s ease-in-out;
+  transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
+  transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out, -webkit-border-radius .2s ease-in-out, -moz-border-radius .2s ease-in-out;
+  bottom: 2px;
+  /* there must be 'bottom' for ps__scrollbar-x */
+  height: 6px;
+}
+
+.ps-container > .ps__scrollbar-x-rail:hover > .ps__scrollbar-x, .ps-container > .ps__scrollbar-x-rail:active > .ps__scrollbar-x {
+  height: 11px;
+}
+
+.ps-container > .ps__scrollbar-y-rail {
+  display: none;
+  position: absolute;
+  /* please don't change 'position' */
+  opacity: 0;
+  -webkit-transition: background-color .2s linear, opacity .2s linear;
+  -o-transition: background-color .2s linear, opacity .2s linear;
+  -moz-transition: background-color .2s linear, opacity .2s linear;
+  transition: background-color .2s linear, opacity .2s linear;
+  right: 0;
+  /* there must be 'right' for ps__scrollbar-y-rail */
+  width: 15px;
+}
+
+.ps-container > .ps__scrollbar-y-rail > .ps__scrollbar-y {
+  position: absolute;
+  /* please don't change 'position' */
+  background-color: #aaa;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, -webkit-border-radius .2s ease-in-out;
+  transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, -webkit-border-radius .2s ease-in-out;
+  -o-transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
+  -moz-transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out, -moz-border-radius .2s ease-in-out;
+  transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
+  transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out, -webkit-border-radius .2s ease-in-out, -moz-border-radius .2s ease-in-out;
+  right: 2px;
+  /* there must be 'right' for ps__scrollbar-y */
+  width: 6px;
+}
+
+.ps-container > .ps__scrollbar-y-rail:hover > .ps__scrollbar-y, .ps-container > .ps__scrollbar-y-rail:active > .ps__scrollbar-y {
+  width: 11px;
+}
+
+.ps-container:hover.ps-in-scrolling.ps-x > .ps__scrollbar-x-rail {
+  background-color: #eee;
+  opacity: 0.9;
+}
+
+.ps-container:hover.ps-in-scrolling.ps-x > .ps__scrollbar-x-rail > .ps__scrollbar-x {
+  background-color: #999;
+  height: 11px;
+}
+
+.ps-container:hover.ps-in-scrolling.ps-y > .ps__scrollbar-y-rail {
+  background-color: #eee;
+  opacity: 0.9;
+}
+
+.ps-container:hover.ps-in-scrolling.ps-y > .ps__scrollbar-y-rail > .ps__scrollbar-y {
+  background-color: #999;
+  width: 11px;
+}
+
+.ps-container:hover > .ps__scrollbar-x-rail,
+.ps-container:hover > .ps__scrollbar-y-rail {
+  opacity: 0.6;
+}
+
+.ps-container:hover > .ps__scrollbar-x-rail:hover {
+  background-color: #eee;
+  opacity: 0.9;
+}
+
+.ps-container:hover > .ps__scrollbar-x-rail:hover > .ps__scrollbar-x {
+  background-color: #999;
+}
+
+.ps-container:hover > .ps__scrollbar-y-rail:hover {
+  background-color: #eee;
+  opacity: 0.9;
+}
+
+.ps-container:hover > .ps__scrollbar-y-rail:hover > .ps__scrollbar-y {
+  background-color: #999;
+}
+
+
+
+
+
+/* The switch - the box around the slider */
+.cus-switch .switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+/* Hide default HTML checkbox */
+.cus-switch .switch input {display:none;}
+
+/* The slider */
+.cus-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.cus-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.cus-switch input:checked + .slider {
+  background-color: #333;
+}
+
+.cus-switch input:focus + .slider {
+  box-shadow: 0 0 1px #333;
+}
+
+.cus-switch input:checked + .slider:before {
+  -webkit-transform: translateX(19px);
+  -ms-transform: translateX(19px);
+  transform: translateX(19px);
+}
+
+/* Rounded sliders */
+.cus-switch .slider.round {
+  border-radius: 34px;
+}
+
+.cus-switch .slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+.form-group.is-focused .form-control {
+  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#d2d2d2, #d2d2d2);
+  background-size: 100% 2px, 100% 1px;
+  box-shadow: none;
+  outline: medium none;
+  transition-duration: 0.3s;
+}
+.form-group.label-static label.control-label, .form-group.label-floating.is-focused label.control-label, .form-group.label-floating:not(.is-empty) label.control-label {
+  font-size: 11px;
+  left: 0;
+  line-height: 1.07143;
+  top: -28px;
+}
+
+/**----------Login Sec-----------*/
+
+.login-sec {
+  background: url("./assets/images/balifoodBackground.jpg");
+  background-size: cover;
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  float: left;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+.login-sec::after{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  // background:url('./assets/img/mask_bg.png');
+  z-index: -1;
+}
+
+.login-form{
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.login-panel{
+  width: 100%;
+  float: left;
+  padding: 10px 0;
+  background-color: rgba(255,255,255,0.85);
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+.loginas-sec {
+  float: left;
+  padding: 20px 0 0;
+  width: 100%;
+}
+
+.login-panel .txtfield{
+  border-color: #999;
+}
+
+.login-panel a{
+  color: #259cc4;
+}
+.login-panel a:hover{
+  color: #259cc4;
+  text-decoration: underline;
+}
+
+.loginas-sec .btn{
+  width: 100%;
+  letter-spacing: 0.7px;
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  background-color: #333;
+}
+.loginas-sec .btn:hover{
+  color: #fff;
+  text-decoration: none;
+}
+
+.or-div{
+  width: 100%;
+  float: left;
+  height: 1px;
+  background-color: #000;
+  position: relative;
+}
+.or-div::after {
+  background-color: #fff;
+  content: "or";
+  left: 45%;
+  padding: 0 4px 2px;
+  position: absolute;
+  top: -11px;
+  border-radius: 50%;
+}
+
+
+.dropdown-menu .cus-switch .switch {
+  width: 30px;
+  height: 17px;
+}
+.dropdown-menu .cus-switch .slider:before{
+  height: 11px;
+  width: 11px;
+  left: 3px;
+  bottom: 3px;
+}
+.dropdown-menu .cus-switch input:checked + .slider:before{
+  transform: translateX(13px);
+}
+.dark_ylw{
+  color: #b7950d;
+}
+.table-responsive{
+	overflow-x: unset;
+}
+
+/*-Left menu-*/
+
+.left-menu {
+  float: left;
+  margin-right: -100%;
+  position: relative;
+  width: 235px;
+}
+
+.left-menulist{
+  width: 100%;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+.left-menulist li {
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.3);
+  float: left;
+  width: 100%;
+  border-radius: 2px;
+}
+.left-menulist > li{
+  margin-bottom: 15px;
+}
+
+.left-menulist li a{
+  display: block;
+  font-size: 16px;
+  position: relative;
+  letter-spacing: 1px;
+  padding: 12px;
+  transition: all 0.1s ease 0s;
+  background-color: #fff;
+  border-bottom: 1px solid #fecd08;
+}
+
+
+.left-menulist li a:hover, .left-menulist li.active > a{
+  background-color: #fecd08;
+  color: #fff;
+}
+.left-menulist li a:focus{
+  background-color: #ddb30c;
+  color: #fff;
+}
+
+.right-wrapper{
+  width: 100%;
+  float: left;
+}
+.right-menu{
+  margin-left: 235px;
+}
+.right-wrapper .right-menu{
+  padding-left: 15px;
+  position: relative;
+}
+
+.right-content {
+  background-color: #fff;
+  float: left;
+  width: 100%;
+}
+.no-float{
+  float: none !important;
+}
+
+
+/**-------View content------*/
+
+.left-content{
+  width: 100%;
+  float: left;
+}
+
+.wrapFilter-ul {
+  width: 100%;
+  float: left;
+  border: 1px solid #333;
+  border-bottom: 0;
+}
+.wrapFilter-ul:last-child {
+  border-bottom: 1px solid #333;
+}
+.filter-heading {
+  width: 100%;
+  float: left;
+  color: #333;
+  margin: 0;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #fff;
+}
+.wrapFilter-div, .filters-ul{
+  width: 100%;
+  float: left;
+}
+.filters-ul{
+  margin: 0;
+  padding-left: 15px;
+}
+.filters-ul li{
+  display: block;
+}
+
+.btns-filter{
+  width: 100%;
+  float: left;
+}
+.btns-filter a.custom-btn {
+  width: 100%;
+  border-radius: 0;
+  margin: 15px 0;
+  white-space: pre-wrap;
+  display: block;
+}
+
+.cont-img{
+  width: 40%;
+  float: left;
+}
+.cont-img img{
+  max-width: 220px;
+  width: 100%;
+  display: inline-block;
+}
+.cont-dtl{
+  width: 60%;
+}
+
+
+.selected-filter, .select-head{
+  /*width: 100%;
+  float: left;*/
+}
+.selected-filter {
+  margin-bottom: 20px;
+}
+.select-head span{
+  display: inline-block;
+}
+.select-head span.hed{
+  font-size: 26px;
+}
+.slctd-fltrli{
+  margin: 0;
+  padding: 10px;
+  background-color: #eee;
+}
+.slctd-fltrli li{
+  background-color: #dadada;
+}
+.slctd-fltrli li{
+  display: inline-block;
+  padding: 5px 10px;
+}
+.slctd-fltrli li span {
+  border-left: 1px solid #eee;
+  transition: all 0.3s ease 0s;
+}
+.slctd-fltrli li span:hover{
+  background-color: #FECD08;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+
+.mat-form-field, .mat-select{
+  width: 100%;
+}
+.mat-select-trigger {
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+}
+.mat-select{
+  margin-bottom: 10px;
+}
+.form-group{
+  margin: 0 0 15px 0;
+}
+
+.mat-form-field-ripple{
+	background-color: #FECD08;	
+}
+.mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-arrow {
+  color: #FECD08;
+}
+.mat-focused .mat-form-field-placeholder {
+  color: #333;
+}
+.mat-select:focus:not(.mat-select-disabled).mat-primary .mat-select-underline {
+  background-color: #FECD08;
+}
+
+.cus-form{
+	width: 100%;
+	float: left;
+}
+.form-group label{
+	color: #333;
+}
+.card form [class*="col-"] {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.custom-btn{
+	background-color: #333;
+}
+.mat-dialog-container{
+  padding: 0 !important; 
+}
+.btn-file > input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-size: 23px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  direction: ltr;
+}
+.fileinput.fileinput-new {
+  max-width: 250px;
+  display: inline-block;
+  width: 100%;
+}
+.fileinput .thumbnail {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  text-align: center;
+  vertical-align: middle;
+  max-width: 250px;
+  width: 100%;
+  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+.fileinput-exists .fileinput-new, .fileinput-new .fileinput-exists {
+  display: none;
+}
+
+.card h4.card-title{
+  margin-top: -5px;
+  margin-bottom: 20px;
+}
+
+// --------------------------------------------------------mukul----------------------------------------
+
+.card-st{
+  padding: 5px
+}
+
+.div-st{
+   background-color: #555;
+    display: table-cell;
+    height: 200px;
+    text-align: center;
+    vertical-align: middle;
+    width: 10%;
+    color: #fff;
+    border: 1px solid #fff
+}
+
+.button-container-right{
+  width: 100%;
+  float: right;
+  text-align: right;
+
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: rgb(255,196,2);
+}
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: rgba(255,196,2,0.5);
+}
+.mat-progress-bar-buffer {
+    background-color: #ffffd6;
+}
+.mat-progress-bar-fill::after {
+    background-color: #ffcc00;
+}
+.mat-tab-label {
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-flex;
+    height: 48px;
+    justify-content: center;
+    min-width: 300px!important;
+    opacity: 0.6;
+    padding: 0 12px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+}
+.mat-sort-header-container {
+  align-items: center;
+}
+.mat-sort-header-button {
+    align-items: center;
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    color: currentcolor;
+    cursor: pointer;
+    display: flex;
+    font: inherit;
+    outline: 0 none;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.dialog-message{
+  text-align: center;
+}
+.dialog-container{
+  padding: 20px;
+}
+.dialog-button-container{
+  width: 100%;
+  text-align: center;
+}
+.left-button{
+  width: 48%;
+  float: left;
+}
+.right-button{
+  width: 48%;
+  float: right;
+}

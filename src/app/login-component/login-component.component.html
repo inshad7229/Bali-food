@@ -1,0 +1,79 @@
+<section class="login-sec" *ngIf="loginDiv">
+    <div class="table-divvh">
+        <div class="table-cell-div">
+            <div class="container">
+                <div class="login-form">
+                    <div class="login-panel">
+                        <h3 class="text-center">BaliFood ! </h3>
+                        <h4 class="text-center">Administrator Login</h4>
+                        <div class="loginas-sec">
+                            <form class="example-form" [formGroup]="complexForm">                          
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <md-form-field>
+                                        <input mdInput placeholder="Email" type="email" [formControl]="complexForm.controls['email']"
+                                        [(ngModel)]="loginModel.email" name="email" >
+                                    </md-form-field>
+                                    <div style="color: #F44336" *ngIf="!complexForm.controls['email'].valid  && complexForm.controls['email'].touched">You must enter a valid email </div>
+                                </div>
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <md-form-field>
+                                        <input mdInput placeholder="Password" type="password" [formControl]="complexForm.controls['password']" [(ngModel)]="loginModel.password" name="password" >
+                                    </md-form-field>
+                                    <div style="color: #F44336" *ngIf="!complexForm.controls['password'].valid  && complexForm.controls['password'].touched">password must be between 6 to 8 characters </div>
+                                </div>
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                   <button type="submit" class="btn btn-primary" [disabled]="!complexForm.valid" (click)=onLogIn()>Login</button>
+                                </div>
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12 text-center">
+                                    <a (click)="onForgotPassword()"> Forgot Password? </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="login-sec" *ngIf="forgotPasswordDiv">
+    <div class="table-divvh">
+        <div class="table-cell-div">
+            <div class="container">
+                <div class="login-form">
+                    <div class="login-panel">
+                        <h3 class="text-center">BaliFood ! </h3>
+                        <h4 class="text-center">Forgot Password</h4>
+                        <div class="loginas-sec">
+                            <form class="example-form" [formGroup]="forgotForm">                          
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <md-form-field>
+                                        <input mdInput placeholder="Email" type="email" [formControl]="forgotForm.controls['email']"
+                                        [(ngModel)]="loginModel.email" name="email" >
+                                    </md-form-field>
+                                    <div style="color: #F44336" *ngIf="!forgotForm.controls['email'].valid  && forgotForm.controls['email'].touched">You must enter a valid email </div>
+                                </div>
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                   <button type="submit" class="btn btn-primary" [disabled]="!forgotForm.valid" (click)="onSubmit()">Submit</button>
+                                </div>
+                                 <div class="form-group col-md-12 col-sm-12 col-xs-12 text-center">
+                                    <a (click)="onCancel()"> cancel </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script type="text/javascript">
+    $('.label-floating .form-control').on('focus',function(){
+        $(this).closest('.label-floating').addClass('is-focused');
+    });
+    $('.label-floating .form-control').on('blur',function(){
+        $(this).closest('.label-floating').removeClass('is-focused');
+    });
+</script>

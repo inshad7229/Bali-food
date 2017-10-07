@@ -1,0 +1,16 @@
+.left{
+	float: left;
+}
+
+.right{
+	float: right;
+}
+
+.button-st{
+	background: -webkit-linear-gradient(rgb(146,65,160), rgb(183,60,62)) !important;
+    border: 1px solid #444444 !important;
+    border-radius: 15px !important;
+    margin-top: 18px!important;
+}
+
+

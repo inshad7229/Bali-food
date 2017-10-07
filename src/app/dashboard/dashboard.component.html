@@ -1,0 +1,24 @@
+ <div class="wrapper">
+ 	<div class="sidebar" data-color='orange' data-background-color="orange" data-image="">
+        <app-sidebar></app-sidebar>
+        <div class="sidebar-background" style="background-position:center "></div>
+    </div>
+	<div class="main-panel">
+	<app-navbar></app-navbar>
+        <div class="main-content">
+            <div class="container-fluid">
+                <router-outlet></router-outlet>
+                <!-- ///////////////////////////////code for file upload//////////////////////////////////// -->
+                   <!--  <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+    				<button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+    				      upload
+    				</button>
+    				<button (click)="getImage()">getpath</button>
+    				{{imagePath}}
+    				<img src="localhost://8080/balifood/{{path}}" > -->
+                <!-- ///////////////////////////////code for file upload end//////////////////////////////////// --> 
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+</div>

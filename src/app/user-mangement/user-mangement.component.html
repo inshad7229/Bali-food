@@ -1,0 +1,204 @@
+<section class="example-section" *ngIf="progressBar">
+      <md-progress-bar
+          class="example-margin"
+          [mode]="mode"
+          >
+      </md-progress-bar>
+</section>
+
+<div class="button-container-right">
+    <button  class="btn btn-black" (click)="onAllAccounts()" >
+        <i class="material-icons">account_box</i>
+        <span class="">all users</span>
+        <div class="ripple-container"></div>
+    </button>  
+     <button  class="btn btn-black" (click)="onActiveAccounts()">
+        <i class="material-icons">verified_user</i>
+        <span class="">Active Accounts</span>
+        <div class="ripple-container"></div>
+    </button>  
+    <button  class="btn btn-black" (click)="onDisabledAccounts()">
+        <i class="material-icons">error</i>
+        <span class="">Deactive Accounts</span>
+        <div class="ripple-container"></div>
+    </button>
+</div>
+<!--  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfDv4XirSYiwfXstiR2V3GU-1J-dxhJH3sJ-g-BJAmhzln4ng/viewform?usp=pp_url&entry.681436305=a" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
+<!-- <button  class="btn btn-black" (click)="generateReport()">
+        <i class="material-icons">error</i>
+        <span class="">generate report</span>
+        <div class="ripple-container"></div>
+    </button> -->
+<div class="main-content" *ngIf="allUsersDiv">
+    <md-form-field class="example-full-width">
+        <input mdInput placeholder="Search"  type="search" (input)="searchUsers('a')" [(ngModel)]="input" >
+    </md-form-field>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="card" > 
+                    <div class="card-header card-header-icon" data-background-color="orange">
+                        <i class="material-icons">account_circle</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">All Users</h4>
+                        <div class="dshbrd-table table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-danger">
+                                    <tr>
+                                        <th> Sr.No. </th>
+                                        <th> User Id </th>
+                                        <th> Name of User </th>
+                                        <th> Email / ID Number </th>
+                                        <th> Status </th>
+                                        <!-- <th> Delete User </th> -->
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    <tr *ngFor="let data of userData; let i = index ">
+                                        <td>
+                                            {{i+1}}.
+                                        </td>
+                                        <td>
+                                           {{data._id}}
+                                        </td>
+                                        <td>
+                                            {{data.username}}
+                                        </td>
+                                        <td>
+                                            <div> {{data.email}}</div>
+                                        </td>
+                                        <td>
+                                            <div>{{data.status}}</div>
+                                            <md-slide-toggle (click)="onStatusButton(data)" *ngIf="data.status=='deactive'" ></md-slide-toggle>
+                                            <md-slide-toggle (click)="onStatusButton(data)" *ngIf="data.status=='active'" checked='true' ></md-slide-toggle >
+                                        </td>
+                                        <!-- <td>
+                                            <i class="material-icons" (click)="openDialog(data)">delete_forever</i>
+                                        </td> -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-content" *ngIf="deactiveAccountsDiv">
+    <md-form-field class="example-full-width">
+        <input mdInput placeholder="Search"  type="search" (input)="searchUsers('b')" [(ngModel)]="input" >
+    </md-form-field>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="card" > 
+                    <div class="card-header card-header-icon" data-background-color="orange">
+                        <i class="material-icons">account_circle</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">All Users</h4>
+                        <div class="dshbrd-table table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-danger">
+                                    <tr>
+                                        <th> Sr.No. </th>
+                                        <th> User Id </th>
+                                        <th> Name of User </th>
+                                        <th> Email / ID Number </th>
+                                        <th> Status </th>
+                                        <!-- <th> Delete User </th> -->
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    <tr *ngFor="let data of deactiveAccounts; let i = index ">
+                                        <td>
+                                            {{i+1}}.
+                                        </td>
+                                        <td>
+                                           {{data._id}}
+                                        </td>
+                                        <td>
+                                            {{data.username}}
+                                        </td>
+                                        <td>
+                                            <div> {{data.email}}</div>
+                                        </td>
+                                        <td>
+                                            <div>{{data.status}}</div>
+                                            <md-slide-toggle (click)="onStatusButton(data)" *ngIf="data.status=='deactive'" ></md-slide-toggle>
+                                            <md-slide-toggle (click)="onStatusButton(data)" *ngIf="data.status=='active'" checked='true' ></md-slide-toggle >
+                                        </td>
+                                        <!-- <td>
+                                            <i class="material-icons" (click)="openDialog(data)">delete_forever</i>
+                                        </td> -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-content" *ngIf="activeAccountDiv">
+    <md-form-field class="example-full-width">
+        <input mdInput placeholder="Search"  type="search" (input)="searchUsers()" [(ngModel)]="input" >
+    </md-form-field>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="card" > 
+                    <div class="card-header card-header-icon" data-background-color="orange">
+                        <i class="material-icons">account_circle</i>
+                    </div>
+                    <div class="card-content">
+                        <h4 class="card-title">All Users</h4>
+                        <div class="dshbrd-table table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-danger">
+                                    <tr>
+                                        <th> Sr.No. </th>
+                                        <th> User Id </th>
+                                        <th> Name of User </th>
+                                        <th> Email / ID Number </th>
+                                        <th> Status </th>
+                                       <!--  <th> Delete User </th> -->
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    <tr *ngFor="let data of activeAccounts; let i = index ">
+                                        <td>
+                                            {{i+1}}.
+                                        </td>
+                                        <td>
+                                           {{data._id}}
+                                        </td>
+                                        <td>
+                                            {{data.username}}
+                                        </td>
+                                        <td>
+                                            <div> {{data.email}}</div>
+                                        </td>
+                                        <td>
+                                            <div>{{data.status}}</div>
+                                            <md-slide-toggle (click)="onStatusButton(data)" *ngIf="data.status=='deactive'" ></md-slide-toggle>
+                                            <md-slide-toggle (click)="onStatusButton(data)" *ngIf="data.status=='active'" checked='true' ></md-slide-toggle >
+                                        </td>
+                                        <!-- <td>
+                                            <i class="material-icons" (click)="openDialog(data)">delete_forever</i>
+                                        </td> -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
