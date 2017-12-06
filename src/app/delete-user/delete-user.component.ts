@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogComponent } from '../dialogs/dialog/dialog.component';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 import { PasswordDialogComponent } from '../dialogs/password-dialog/password-dialog.component';
 import { UserManagementService } from '../user-mangement/user-management.service'
 
@@ -19,7 +19,7 @@ userid
 mode = 'indeterminate';
 userDetails;
 input
-  constructor(private userManagementService:UserManagementService,public dialog: MdDialog,private snackBar:MdSnackBar) { }
+  constructor(private userManagementService:UserManagementService,public dialog: MatDialog,private snackBar:MatSnackBar) { }
 
   ngOnInit() {
   	this.getUserList()

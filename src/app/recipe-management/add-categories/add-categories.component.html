@@ -1,0 +1,70 @@
+<!-- <div id="page-wrapper">
+    <div class="container-fluid">
+        <h1 class="main-head">Add Categories</h1> 
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            	<div class="form-group">
+                    <label>Add Category</label>
+                    <input type="text" class="form-control" placeholder="Enter title">
+                </div>
+                <div class="form-group">
+                    
+                    <button type="buttton" class="btn btn-yellow">Submit</button>
+                </div>
+                <div class="form-group">
+                     <label>Added Categories</label>
+                    <p class="category-show">
+                        Meat, Fishes, 
+                    </p>
+                </div>
+            </div>                   
+        </div>
+    </div>
+</div> -->
+<div id="page-wrapper">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="recipe-name">
+                        <h1 class="main-head">Category Management</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <button type="button" class="btn btn-danger pull-right">Delete</button>
+                    <button type="button" class="btn btn-success pull-right" (click)="onAddCategory()">Add Category</button>
+                </div>
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Sr. No.</th>
+                                <th  class="text-center">Category Name</th>
+                                <th  class="text-center">Select Recipies <mat-checkbox></mat-checkbox></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td >1.</td>
+                                <td class="text-center">Indian</td>                     
+                                <td  class="text-center">
+                                     <div class="check-box">
+                                        <mat-checkbox>Select </mat-checkbox>
+                                    </div> 
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>                   
+        </div>
+    </div>
+</div>
+
+
+

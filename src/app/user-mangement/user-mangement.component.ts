@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserManagementService } from './user-management.service'
 import { Angular2Csv } from 'angular2-csv/Angular2-csv';
-import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogComponent } from '../dialogs/dialog/dialog.component';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-user-mangement',
@@ -25,7 +25,7 @@ deactiveAccountsDiv:boolean=false;
 activeAccountDiv:boolean=false;
 allUsersDiv:boolean=true;
 
-  constructor(private userManagementService:UserManagementService,public dialog: MdDialog,private snackBar:MdSnackBar) { }
+  constructor(private userManagementService:UserManagementService,public dialog: MatDialog,private snackBar:MatSnackBar) { }
 
   ngOnInit() {
   	this.getUserList()

@@ -1,0 +1,16 @@
+<div class="popup">
+	<mat-form-field class="example-full-width">
+    	<input matInput placeholder="Add Ingredients" [(ngModel)]="ingredient">
+    	<mat-icon matSuffix (click)="onAdd()"><i class="material-icons">add</i></mat-icon>
+ 	</mat-form-field>
+
+ 	<ul *ngIf="ingredients">
+ 		<li *ngFor="let ingredient of ingredients ; let i = index">
+ 			<span>{{i+1}}</span>
+ 			<span>{{ingredient}}</span>
+ 		</li>
+ 	</ul> 
+ 	<div class="text-center">				
+		<button type="button" class="btn btn-success btn-xs" (click)="onSubmit()">Submit</button>
+	</div>	
+</div>

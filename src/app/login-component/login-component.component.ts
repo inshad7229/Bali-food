@@ -6,7 +6,7 @@ import { Observable }  from 'rxjs/Rx';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-login-component',
@@ -23,7 +23,7 @@ export class LoginComponentComponent implements OnInit {
   register="true";
   loginDiv:boolean=true;
   forgotPasswordDiv:boolean=false;
-  constructor(private loginService:LoginService, private router:Router,private formBuilder: FormBuilder,private snackBar:MdSnackBar) { 
+  constructor(private loginService:LoginService, private router:Router,private formBuilder: FormBuilder,private snackBar:MatSnackBar) { 
     
      this.complexForm = formBuilder.group({
       'email': [null, Validators.compose([Validators.required, Validators.minLength(4), Validators.pattern("^[a-zA-Z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$")])],

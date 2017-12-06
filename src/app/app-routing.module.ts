@@ -9,7 +9,9 @@ import { FooterComponent } from './footer/footer.component';
 import { GeneralManagementComponent} from './general-management/general-management.component';
 import { ContentManagementComponent } from './content-management/content-management.component';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
-
+import { ViewRecipesComponent } from './recipe-management/view-recipes/view-recipes.component';
+import { AddRecipeComponent } from './recipe-management/add-recipe/add-recipe.component';
+import { AddCategoriesComponent } from './recipe-management/add-categories/add-categories.component'
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -21,7 +23,11 @@ const routes: Routes = [
       { path: 'reportManagement',  component:ReportManagementComponent },
       { path: 'aboutUsManagement', component:GeneralManagementComponent },
       { path: 'contentManagement', component:ContentManagementComponent },
-      { path: 'deleteUser',        component:DeleteUserComponent}
+      { path: 'deleteUser',        component:DeleteUserComponent},
+      { path: 'viewRecipes',       component:ViewRecipesComponent},
+      { path: 'addRecipe',       component:AddRecipeComponent},
+      { path: 'addCategories',       component:AddCategoriesComponent}
+
     ]},
  	{ path: 'footer', component:FooterComponent}
  

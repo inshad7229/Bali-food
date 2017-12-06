@@ -1,0 +1,165 @@
+<div id="page-wrapper">
+
+<div class="container-fluid">
+	<h1 class="main-head">Create New Recipe</h1>
+	<div class="row">
+		<form role="form">
+			<div class="col-lg-6">
+				<div class="row">
+					<div id="main-img">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+							<div class="wrap-main">
+								<img src="assets/images/balifoodBackground.jpg" class="img-responsive img-rounded">
+							</div>	
+							<div class="form-group add-main-image">
+								<label for="pwd">Add Main Image</label>
+								<input type="file" name="img[]" class="file">
+							</div>
+							<div class="input-group col-xs-12">
+								<!-- <span class="input-group-addon"><i class="fa fa-file-image-o"></i></span> -->
+								<input type="text" class="form-control" disabled placeholder="Upload image">
+								<span class="input-group-btn">
+								<button class="browse btn  all-btns" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+								</span>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="image-main">								
+										<button type="button" class="btn btn-yellow btn-sm">Edit</button>
+										<button type="button" class="btn btn-black btn-sm">Delete</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div class="form-group">
+					<!-- <label>Title</label> -->
+					<mat-form-field>
+						<input type="text" matInput placeholder="Enter title">
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div class="form-group">
+					<!-- <label>Duration</label> -->
+					<mat-form-field>
+						<input type="text" matInput placeholder="Duration">
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div class="form-group level">
+					<!-- <label>Level</label> -->
+					<mat-form-field class="">   
+                        <mat-select placeholder="Level" name="Level"  >
+                            <mat-option value="Easy"> Easy </mat-option>
+                            <mat-option value="Medium"> Medium </mat-option>
+                            <mat-option value="Hard"> Hard </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+				</div>
+			</div>			
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div class="form-group">
+					<!-- <label>Meal Type</label> -->
+					<mat-form-field>   
+                        <mat-select placeholder="MealType" name="Level"  >
+                            <mat-option value="Easy"> Kosher Meet< </mat-option>
+                            <mat-option value="Medium"> Kosher Dairy </mat-option>
+                            <mat-option value="Hard"> Kosher Parve </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div class="form-group" >
+					<label>Description</label>
+					<mat-form-field>
+						<textarea matInput rows="2"></textarea>
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div class="form-group instructions" (click)="addIngredient()">
+					<mat-form-field>
+						<input type="" name="" placeholder="Ingredients" matInput  rows="2" [(ngModel)]="ingredients" [ngModelOptions]="{standalone: true}">
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div class="form-group instructions" (click)="addInstructions()" >
+					<mat-form-field>
+						<input type="" name="" placeholder="Instructions" matInput  rows="2"  [(ngModel)]="instructions" [ngModelOptions]="{standalone: true}">
+					</mat-form-field>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div class="form-group">
+					<!-- <label>Categories</label> -->
+					 <mat-form-field class="categotries">   
+                        <mat-select placeholder="categotries" name="Level"  >
+                            <mat-option value="Easy"> Chicken </mat-option>
+                            <mat-option value="Medium"> Meat </mat-option>
+                            <mat-option value="Hard"> Pasta</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+				</div>
+			</div><br>
+			
+		</form>
+	</div>
+	<div class="row">
+		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div class="form-group">
+					<label for="pwd">Add images</label>
+					<input type="file" name="img[]" class="file">
+				</div>
+				<div class="input-group col-xs-12">
+					
+					<input type="text" class="form-control" disabled placeholder="Upload Image">
+					<span class="input-group-btn">
+					<button class="browse btn  all-btns" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+					</span>
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="image-display">
+							<img src="assets/images/food2.jpg" class="img-responsive img-rounded" >
+							<button type="button" class="btn btn-yellow btn-xs">Edit</button>
+							<button type="button" class="btn btn-black btn-xs">Delete</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div class="form-group">
+					<label for="pwd">Add Video</label>
+					<input type="file" name="img[]" class="file">
+				</div>
+				<div class="input-group col-xs-12">
+					
+					<input type="text" class="form-control" disabled placeholder="Upload video">
+					<span class="input-group-btn">
+					<button class="browse btn mybtn" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+					</span>
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="image-display">
+							<img src="assets/images/food2.jpg" class="img-responsive img-rounded" >
+							<button type="button" class="btn btn-yellow btn-xs">Edit</button>
+							<button type="button" class="btn btn-black btn-xs">Delete</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-12">
+				<button type="submit" class="btn btn-yellow">Submit Button</button>
+				<button type="reset" class="btn btn-black">Reset Button</button>	
+			</div>
+	</div>
+	</div>
+</div>

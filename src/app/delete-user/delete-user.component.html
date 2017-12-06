@@ -1,17 +1,17 @@
 <section class="example-section" *ngIf="progressBar">
-      <md-progress-bar
+      <mat-progress-bar
           class="example-margin"
           [mode]="mode"
           >
-      </md-progress-bar>
+      </mat-progress-bar>
 </section>
 <div class="main-content">
-    <md-form-field class="example-full-width">
-        <input mdInput placeholder="Search"  type="search" (input)="searchUsers()" [(ngModel)]="input" >
-    </md-form-field>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Search"  type="search" (input)="searchUsers()" [(ngModel)]="input" >
+    </mat-form-field>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12 col-md-12">
+            <div class="col-lg-12 col-mat-12">
                 <div class="card" > 
                     <div class="card-header card-header-icon" data-background-color="orange">
                         <i class="material-icons">account_circle</i>
@@ -46,8 +46,8 @@
                                         </td>
                                         <!-- <td>
                                             <div>{{data.status}}</div>
-                                            <md-slide-toggle (click)="onStatusButton(data)" *ngIf="data.status=='deactive'" ></md-slide-toggle>
-                                            <md-slide-toggle (click)="onStatusButton(data)" *ngIf="data.status=='active'" checked='true' ></md-slide-toggle >
+                                            <mat-slide-toggle (click)="onStatusButton(data)" *ngIf="data.status=='deactive'" ></mat-slide-toggle>
+                                            <mat-slide-toggle (click)="onStatusButton(data)" *ngIf="data.status=='active'" checked='true' ></mat-slide-toggle >
                                         </td> -->
                                         <td>
                                             <i class="material-icons" (click)="openDialog(data)">delete_forever</i>

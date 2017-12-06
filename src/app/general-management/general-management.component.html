@@ -1,14 +1,14 @@
 <section class="example-section" *ngIf="progressBar">
-    <md-progress-bar
+    <mat-progress-bar
       class="example-margin"
       [mode]="mode"
       >
-    </md-progress-bar>
+    </mat-progress-bar>
 </section>
 <div class="main-content" >
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12 col-md-12">
+            <div class="col-lg-12 col-mat-12">
                 <div class="card" > 
                     <div class="card-header card-header-icon" data-background-color="orange">
                        <i class="material-icons">public</i>
@@ -19,9 +19,9 @@
                             <button  class="btn btn-black" (click)="onEditContent()">Edit About Us Content</button>
                         </div>
                          <div *ngIf="editContent">
-                              <md-form-field class="example-full-width">
-                                 <textarea mdInput placeholder="Enter Content" [(ngModel)]="aboutUsContentModel.content" style="height:500px"></textarea>
-                              </md-form-field>
+                              <mat-form-field class="example-full-width">
+                                 <textarea matInput placeholder="Enter Content" [(ngModel)]="aboutUsContentModel.content" style="height:500px"></textarea>
+                              </mat-form-field>
                               <div class="button-container-right">
                                   <button class="btn btn-yellow" (click)="updateData()">Submit</button>
                                   <button class="btn btn-black" (click)="onCancel()">Cancel</button>

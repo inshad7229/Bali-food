@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PerfectScrollbarModule } from 'angular2-perfect-scrollbar';
-import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogComponent } from '../dialogs/dialog/dialog.component';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 import { Router,RouterLinkActive } from '@angular/router';
 import { PasswordDialogComponent } from '../dialogs/password-dialog/password-dialog.component'
 
@@ -14,7 +14,7 @@ import { PasswordDialogComponent } from '../dialogs/password-dialog/password-dia
 export class SidebarComponent implements OnInit {
   template;
   activeUser;
-  constructor(private router: Router,public dialog: MdDialog,private snackBar:MdSnackBar) { }
+  constructor(private router: Router,public dialog: MatDialog,private snackBar:MatSnackBar) { }
 
   ngOnInit() {
    //  alert(this.router.url)

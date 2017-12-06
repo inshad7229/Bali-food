@@ -1,13 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { NgModule,NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { HttpModule, Http, JsonpModule } from "@angular/http";
-import { MdInputModule } from '@angular/material';
-import { MdButtonModule, MdCheckboxModule,MdSlideToggleModule,MdProgressBarModule,MdDatepickerModule,MdSnackBarModule,
-       MdDialogModule,MdTabsModule,MdSortModule } from '@angular/material';
-
+import { MatInputModule } from '@angular/material';
+import { MatSelectModule,MatButtonModule, MatCheckboxModule,MatSlideToggleModule,MatProgressBarModule,MatDatepickerModule,MatSnackBarModule,
+       MatDialogModule,MatTabsModule,MatSortModule } from '@angular/material';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';           
 import {ColorPickerModule} from 'angular4-color-picker';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +26,14 @@ import { ContentManagementComponent } from './content-management/content-managem
 import { DialogComponent } from './dialogs/dialog/dialog.component';
 import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { PasswordDialogComponent } from './dialogs/password-dialog/password-dialog.component';
-import { WebsocketService} from './recipe-mangement/websocket.service'
+import { WebsocketService} from './recipe-mangement/websocket.service';
+import { ViewRecipesComponent } from './recipe-management/view-recipes/view-recipes.component';
+import { AddRecipeComponent } from './recipe-management/add-recipe/add-recipe.component';
+import { AddCategoriesComponent } from './recipe-management/add-categories/add-categories.component';
+import { IngredientsComponent } from './popups/ingredients/ingredients.component';
+import { UserlistComponent } from './popups/userlist/userlist.component';
+import { AddCategoryComponent } from './popups/add-category/add-category.component';
+import { InstructionsComponent } from './popups/instructions/instructions.component'
 
 
 
@@ -47,33 +54,41 @@ import { WebsocketService} from './recipe-mangement/websocket.service'
     DialogComponent,
     DeleteUserComponent,
     PasswordDialogComponent,
+    ViewRecipesComponent,
+    AddRecipeComponent,
+    AddCategoriesComponent,
+    IngredientsComponent,
+    UserlistComponent,
+    AddCategoryComponent,
+    InstructionsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
-    MdButtonModule,
-    MdCheckboxModule,
-    MdSlideToggleModule,
-    MdDatepickerModule,
-    MdProgressBarModule,
-    MdSnackBarModule,
-    MdDialogModule,
-    MdTabsModule,
-    MdSortModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatSlideToggleModule,
+    MatDatepickerModule,
+    MatProgressBarModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatTabsModule,
+    MatSortModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
     JsonpModule,
     DashboardModule,
-    MdInputModule,
-    ColorPickerModule
- 
-
+    MatInputModule,
+    ColorPickerModule,
+    MatSelectModule,
+    MDBBootstrapModule.forRoot()
   ],
+  schemas: [ NO_ERRORS_SCHEMA ],
   providers: [WebsocketService],
   bootstrap: [AppComponent],
-  entryComponents:[DialogComponent,PasswordDialogComponent]
+  entryComponents:[InstructionsComponent,AddCategoryComponent,UserlistComponent,IngredientsComponent,DialogComponent,PasswordDialogComponent]
 })
 export class AppModule { }

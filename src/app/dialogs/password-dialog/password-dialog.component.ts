@@ -1,6 +1,6 @@
 import { Component, OnInit,Inject } from '@angular/core';
-import { MdDialog, MdDialogRef, MD_DIALOG_DATA } from '@angular/material';
-import { MdSnackBar } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-password-dialog',
@@ -11,7 +11,7 @@ export class PasswordDialogComponent implements OnInit {
 password;
 errDiv=false;
 agree=false;
-  constructor(private snackBar:MdSnackBar,public dialogRef: MdDialogRef<PasswordDialogComponent>,@Inject(MD_DIALOG_DATA) public data: any) { }
+  constructor(private snackBar:MatSnackBar,public dialogRef: MatDialogRef<PasswordDialogComponent>,@Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {
   }
