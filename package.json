@@ -26,6 +26,7 @@
     "angular-bootstrap-md": "^5.0.5",
     "angular2-csv": "^0.2.5",
     "angular2-perfect-scrollbar": "^2.0.6",
+    "angular2-time-duration-picker": "^1.1.0",
     "angular4-color-picker": "^1.4.2",
     "chart.js": "^2.5.0",
     "core-js": "^2.4.1",
@@ -34,6 +35,7 @@
     "jspdf": "^1.3.5",
     "mdbootstrap": "^4.4.3",
     "ng2-file-upload": "^1.2.1",
+    "ngx-datetime-picker": "^1.1.0",
     "rxjs": "^5.4.1",
     "zone.js": "^0.8.14"
   },

@@ -15,7 +15,7 @@ export class AddCategoriesComponent implements OnInit {
 
   onAddCategory(): void {
     let dialogRef = this.dialog.open(AddCategoryComponent, {
-        width: '300px',
+        width: '400px',
       });
     	dialogRef.afterClosed().subscribe(result => {
     	 if (result) {

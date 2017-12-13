@@ -6,8 +6,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./instructions.component.scss']
 })
 export class InstructionsComponent implements OnInit {
-instructions=[];
-instruction;
+  instructions=[];
+  instruction;
   constructor(public dialogRef: MatDialogRef<InstructionsComponent>,@Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit() {

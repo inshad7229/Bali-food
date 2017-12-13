@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IngredientsComponent } from '../../popups/ingredients/ingredients.component';
 import { InstructionsComponent } from '../../popups/instructions/instructions.component';
+import { SelectUserComponent } from '../../popups/select-user/select-user.component'
 
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
@@ -37,6 +38,17 @@ export class AddRecipeComponent implements OnInit {
        if (result) {
          console.log(result);
          this.instructions=result.toString();
+       }
+    }); 
+  }
+
+  onPostAs(){
+    let dialogRef = this.dialog.open(SelectUserComponent, {
+        width: '450px',
+      });
+      dialogRef.afterClosed().subscribe(result => {
+       if (result) {
+         
        }
     }); 
   }

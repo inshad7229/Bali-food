@@ -34,7 +34,8 @@ import { IngredientsComponent } from './popups/ingredients/ingredients.component
 import { UserlistComponent } from './popups/userlist/userlist.component';
 import { AddCategoryComponent } from './popups/add-category/add-category.component';
 import { InstructionsComponent } from './popups/instructions/instructions.component'
-
+import { DateTimePickerModule} from 'ngx-datetime-picker';
+import { SelectUserComponent } from './popups/select-user/select-user.component';
 
 
 @NgModule({
@@ -61,8 +62,10 @@ import { InstructionsComponent } from './popups/instructions/instructions.compon
     UserlistComponent,
     AddCategoryComponent,
     InstructionsComponent,
+    SelectUserComponent,
   ],
   imports: [
+    DateTimePickerModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -89,6 +92,6 @@ import { InstructionsComponent } from './popups/instructions/instructions.compon
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [WebsocketService],
   bootstrap: [AppComponent],
-  entryComponents:[InstructionsComponent,AddCategoryComponent,UserlistComponent,IngredientsComponent,DialogComponent,PasswordDialogComponent]
+  entryComponents:[SelectUserComponent,InstructionsComponent,AddCategoryComponent,UserlistComponent,IngredientsComponent,DialogComponent,PasswordDialogComponent]
 })
 export class AppModule { }

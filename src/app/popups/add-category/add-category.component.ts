@@ -6,10 +6,15 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
   styleUrls: ['./add-category.component.scss']
 })
 export class AddCategoryComponent implements OnInit {
+	categoryNameEnglish;
+	categoryNameHerbew;
+  	constructor(public dialogRef: MatDialogRef<AddCategoryComponent>,@Inject(MAT_DIALOG_DATA) public data: any) { }
 
-  constructor(public dialogRef: MatDialogRef<AddCategoryComponent>,@Inject(MAT_DIALOG_DATA) public data: any) { }
+ 	ngOnInit() {
 
-  ngOnInit() {
-  }
+ 	}
 
+	onSubmit(){
+	  this.dialogRef.close()
+	}
 }

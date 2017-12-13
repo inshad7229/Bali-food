@@ -55,10 +55,12 @@ ul{
   background-color: #333;
   color: #fff;
 }
+
 .btn-black{
   background-color: #333;
   color: #fff;
 }
+
 .btn-yellow{
   background-color: #FECD08;
   color: #555;
@@ -1054,7 +1056,7 @@ input[type="date"], input[type="datetime-local"], input[type="email"], input[typ
   border-width: medium medium 1px;
   box-shadow: none;
   box-sizing: content-box;
-  font-size: 1rem;
+  font-size: 1.5rem;
   height: 2.1rem;
   outline: 0 none;
   transition: all 0.3s ease 0s;
@@ -1066,4 +1068,8 @@ input[type="date"], input[type="datetime-local"], input[type="email"], input[typ
 
 .ingredient{
   display: inline-block;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+    background-color: #FECD08;
 }
