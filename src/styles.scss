@@ -1073,3 +1073,37 @@ input[type="date"], input[type="datetime-local"], input[type="email"], input[typ
 .mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
     background-color: #FECD08;
 }
+
+.recipe-img{
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+}
+
+.recipe-Video{
+  height:50px;
+  width:50px
+}
+
+.loader-box div {
+  display: inline-block;
+  margin: auto 0;
+}
+
+.loader-box {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  background-color: rgba(0,0,0,0.54);
+}
+
+.loader-box img {
+  width: 70px;
+  margin: auto 0;
+}

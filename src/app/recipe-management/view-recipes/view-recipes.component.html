@@ -1,6 +1,8 @@
+<div class="loader-box" *ngIf="loading" >
+    <img src="./assets/images/load.gif" class="img-responsive" />
+</div>
 <div id="page-wrapper">
     <div class="container-fluid">
-
         <div class="row">
             <div class="row">
                 <div class="col-lg-6">
@@ -30,15 +32,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr >
-                                <td><img src="assets/images/food3.jpg" class="img-responsive img-circle doctor-picture"></td>
-                                <td class="text-center" (click)="onRecipe()">Bubur Sum Sum</td>
+                            <tr *ngFor="let recipe of recipeList;let i = index">
+                                <td><img [src]="getSafeContent(recipe.mainImage)" class="recipe-img"></td>
+                                <td class="text-center" (click)="onRecipe()">{{getValue(recipe.recipeTitle)}}</td>
                                 <td  class="text-center">
-                                    <i class="text-muted">Easy</i>
+                                    <i class="text-muted">{{getValue(recipe.level)}}</i>
                                 </td>
-                                <td class="text-center">Meat</td>
+                                <td class="text-center">{{getValue(recipe.categories)}}</td>
                         
-                                <td  class="text-center">5 Minutes</td>
+                                <td  class="text-center">{{getValue(recipe.duration)}}</td>
                                  <td  class="text-center"><button class="btn btn-info btn-sm" (click)="onViewUsers()">View users</button></td>
                                 <td  class="text-center">
                                      <div class="check-box">
@@ -47,7 +49,7 @@
                                 </td>
                                 
                             </tr>
-                            <tr>
+                         <!--    <tr>
                                 <td><img src="assets/images/food3.jpg" class="img-responsive img-circle doctor-picture"></td>
                                 <td class="text-center">Bubur Sum Sum</td>
                                 <td  class="text-center">
@@ -122,7 +124,7 @@
                                         <mat-checkbox>Select </mat-checkbox>
                                     </div> 
                                 </td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                 </div>

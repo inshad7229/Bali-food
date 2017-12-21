@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <button type="button" class="btn btn-danger pull-right">Delete</button>
+                    <button type="button" class="btn btn-danger pull-right" (click)="deleteRecipe()">Delete</button>
                     <button type="button" class="btn btn-success pull-right" (click)="onAddCategory()">Add Category</button>
                 </div>
             </div>
@@ -50,13 +50,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td >1.</td>
-                                <td class="text-center">Indian</td>
-                                <td class="text-center">Indian</td>                                        
+                            <tr *ngFor="let category of categoryList;let i=index">
+                                <td >{{i+1}}</td>
+                                <td class="text-center">{{category.categoryName}}</td>
+                                <td class="text-center">{{category.categoryNameHerbew}}</td>                                        
                                 <td  class="text-center">
                                      <div class="check-box">
-                                        <mat-checkbox>Select </mat-checkbox>
+                                        <mat-checkbox (change)="onCheckbox(category._id)">Select </mat-checkbox>
                                     </div> 
                                 </td>
                             </tr>

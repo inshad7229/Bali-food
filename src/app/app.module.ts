@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 import { HttpModule, Http, JsonpModule } from "@angular/http";
 import { MatInputModule } from '@angular/material';
 import { MatSelectModule,MatButtonModule, MatCheckboxModule,MatSlideToggleModule,MatProgressBarModule,MatDatepickerModule,MatSnackBarModule,
-       MatDialogModule,MatTabsModule,MatSortModule } from '@angular/material';
+       MatDialogModule,MatTabsModule,MatSortModule,MatProgressSpinnerModule } from '@angular/material';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';           
 import {ColorPickerModule} from 'angular4-color-picker';
 import { FileSelectDirective } from 'ng2-file-upload';
@@ -36,6 +36,9 @@ import { AddCategoryComponent } from './popups/add-category/add-category.compone
 import { InstructionsComponent } from './popups/instructions/instructions.component'
 import { DateTimePickerModule} from 'ngx-datetime-picker';
 import { SelectUserComponent } from './popups/select-user/select-user.component';
+import { RecipeServicesService } from './providers/recipe-services.service';
+import { SpecificUsersComponent } from './popups/specific-users/specific-users.component'
+
 
 
 @NgModule({
@@ -63,6 +66,7 @@ import { SelectUserComponent } from './popups/select-user/select-user.component'
     AddCategoryComponent,
     InstructionsComponent,
     SelectUserComponent,
+    SpecificUsersComponent,
   ],
   imports: [
     DateTimePickerModule,
@@ -76,6 +80,7 @@ import { SelectUserComponent } from './popups/select-user/select-user.component'
     MatDatepickerModule,
     MatProgressBarModule,
     MatSnackBarModule,
+    MatProgressSpinnerModule,
     MatDialogModule,
     MatTabsModule,
     MatSortModule,
@@ -90,8 +95,8 @@ import { SelectUserComponent } from './popups/select-user/select-user.component'
     MDBBootstrapModule.forRoot()
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [WebsocketService],
+  providers: [WebsocketService,RecipeServicesService],
   bootstrap: [AppComponent],
-  entryComponents:[SelectUserComponent,InstructionsComponent,AddCategoryComponent,UserlistComponent,IngredientsComponent,DialogComponent,PasswordDialogComponent]
+  entryComponents:[SpecificUsersComponent,SelectUserComponent,InstructionsComponent,AddCategoryComponent,UserlistComponent,IngredientsComponent,DialogComponent,PasswordDialogComponent]
 })
 export class AppModule { }

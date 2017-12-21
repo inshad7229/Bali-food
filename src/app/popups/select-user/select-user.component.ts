@@ -12,4 +12,14 @@ export class SelectUserComponent implements OnInit {
   ngOnInit() {
   }
 
+  onPostAsAdmin(){
+  	this.dialogRef.close("admin");
+  }
+
+  onPostAsUser(){
+  	this.dialogRef.close("user");
+  }
+
+
+
 }

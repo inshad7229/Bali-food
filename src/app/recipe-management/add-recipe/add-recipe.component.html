@@ -1,32 +1,32 @@
 <div id="page-wrapper">
-
 <div class="container-fluid">
 	<h1 class="main-head">Create New Recipe</h1>
 	<div class="row">
-		<form role="form">
+		<form role="form" >
 			<div class="col-lg-6">
 				<div class="row">
 					<div id="main-img">
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 							<div class="wrap-main">
-								<img src="assets/images/balifoodBackground.jpg" class="img-responsive img-rounded">
+								<img [src]="mainImage" class="img-responsive img-rounded" *ngIf="mainImage">
+								<img src='http://placehold.it/350x350' *ngIf="!mainImage">
 							</div>	
 							<div class="form-group add-main-image">
 								<label for="pwd">Add Main Image</label>
-								<input type="file" name="img[]" class="file">
+								<input type="file" name="img[]" class="file" #fileImage (change)="onMainImage($event)">
 							</div>
 							<div class="input-group col-xs-12">
 								<!-- <span class="input-group-addon"><i class="fa fa-file-image-o"></i></span> -->
 								<input type="text" class="form-control" disabled placeholder="Upload image">
 								<span class="input-group-btn">
-								<button class="browse btn  all-btns" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+								<button class="browse btn  all-btns" type="button" (click)="fileImage.click()"><i class="glyphicon glyphicon-search"></i> Browse</button>
 								</span>
 							</div>
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="image-main">								
-										<button type="button" class="btn btn-yellow btn-sm">Edit</button>
-										<button type="button" class="btn btn-black btn-sm">Delete</button>
+										<button type="button" class="btn btn-yellow btn-sm" (click)="fileImage.click()">Edit</button>
+										<button type="button" class="btn btn-black btn-sm" (click)="onDeleteMainImage()">Delete</button>
 									</div>
 								</div>
 							</div>
@@ -38,13 +38,14 @@
 				<div class="form-group">
 					<!-- <label>Title</label> -->
 					<mat-form-field>
-						<input type="text" matInput placeholder="Enter title">
+						<input type="text" matInput placeholder="Enter title" name="title" [(ngModel)]="recipeModel.recipeTitle">
 					</mat-form-field>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 				<div class="form-group">
 					<label>Duration</label>
+					<!-- <ngb-timepicker [(ngModel)]="time"></ngb-timepicker> -->
 					<ngx-time-picker [(selectedTime)]="timeExample"></ngx-time-picker>
 					<!-- <time-duration-picker [inputDisabled]=false returnedValueUnit="second" (onChange)="onNumberChanged($event)" class="row">
  						<time-duration-picker-unit class="col-md-12" [name]="'second'"></time-duration-picker-unit>
@@ -55,7 +56,7 @@
 				<div class="form-group level">
 					<!-- <label>Level</label> -->
 					<mat-form-field class="">   
-                        <mat-select placeholder="Level" name="Level"  >
+                        <mat-select placeholder="Level"  name="level" [(ngModel)]="recipeModel.level">
                             <mat-option value="Easy"> Easy </mat-option>
                             <mat-option value="Medium"> Medium </mat-option>
                             <mat-option value="Hard"> Hard </mat-option>
@@ -67,10 +68,13 @@
 				<div class="form-group">
 					<!-- <label>Meal Type</label> -->
 					<mat-form-field>   
-                        <mat-select placeholder="MealType" name="Level"  >
-                            <mat-option value="Easy"> Kosher Meet< </mat-option>
-                            <mat-option value="Medium"> Kosher Dairy </mat-option>
-                            <mat-option value="Hard"> Kosher Parve </mat-option>
+                        <mat-select placeholder="MealType" name="mealType" [(ngModel)]="recipeModel.mealType" >
+                            <mat-option value="Kosher Meet"> Kosher Meet </mat-option>
+                            <mat-option value="Kosher Dairy"> Kosher Dairy </mat-option>
+                            <mat-option value="Kosher Parve"> Kosher Parve </mat-option>
+                            <mat-option value="Not Kosher Meet"> Not Kosher Meet </mat-option>
+                            <mat-option value="Not Kosher Dairy"> Not Kosher Dairy </mat-option>
+                            <mat-option value="Not Kosher Veg"> Not Kosher Veg </mat-option>
                         </mat-select>
                     </mat-form-field>
 				</div>
@@ -79,32 +83,30 @@
 				<div class="form-group" >
 					<label>Description</label>
 					<mat-form-field>
-						<textarea matInput rows="2"></textarea>
+						<textarea matInput rows="2" name="description" [(ngModel)]="recipeModel.description"></textarea>
 					</mat-form-field>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 				<div class="form-group instructions" (click)="addIngredient()">
 					<mat-form-field>
-						<input type="" name="" placeholder="Ingredients" matInput  rows="2" [(ngModel)]="ingredients" [ngModelOptions]="{standalone: true}">
+						<input type="" name="" placeholder="Ingredients" matInput  rows="2" [(ngModel)]="ingredients" name="ingredients">
 					</mat-form-field>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 				<div class="form-group instructions" (click)="addInstructions()" >
 					<mat-form-field>
-						<input type="" name="" placeholder="Instructions" matInput  rows="2"  [(ngModel)]="instructions" [ngModelOptions]="{standalone: true}">
+						<input type="" name="" placeholder="Instructions" matInput  rows="2"  [(ngModel)]="instructions" name="instructions">
 					</mat-form-field>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 				<div class="form-group">
 					<!-- <label>Categories</label> -->
-					 <mat-form-field class="categotries">   
-                        <mat-select placeholder="categotries" name="Level"  >
-                            <mat-option value="Easy"> Chicken </mat-option>
-                            <mat-option value="Medium"> Meat </mat-option>
-                            <mat-option value="Hard"> Pasta</mat-option>
+					 <mat-form-field class="categotries" *ngIf="categoryList">   
+                        <mat-select placeholder="categotries" name="category">
+                            <mat-option *ngFor="let category of categoryList" value="Easy">{{category.categoryName}} </mat-option>
                         </mat-select>
                     </mat-form-field>
 				</div>
@@ -116,21 +118,21 @@
 		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 				<div class="form-group">
 					<label for="pwd">Add images</label>
-					<input type="file" name="img[]" class="file">
+					<input type="file" multiple name="img[]" class="file" #multipleImages (change)="onRecipeImages($event)">
 				</div>
 				<div class="input-group col-xs-12">
 					
 					<input type="text" class="form-control" disabled placeholder="Upload Image">
 					<span class="input-group-btn">
-					<button class="browse btn  all-btns" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+					<button class="browse btn  all-btns" type="button" (click)="multipleImages.click()"><i class="glyphicon glyphicon-search"></i> Browse</button>
 					</span>
 				</div>
-				<div class="row">
+				<div class="row" *ngFor="let recipeImage of recipeImages;let i=index" >
 					<div class="col-lg-6">
 						<div class="image-display">
-							<img src="assets/images/food2.jpg" class="img-responsive img-rounded" >
+							<img [src]="recipeImage" class="img-responsive img-rounded" >
 							<button type="button" class="btn btn-yellow btn-xs">Edit</button>
-							<button type="button" class="btn btn-black btn-xs">Delete</button>
+							<button type="button" class="btn btn-black btn-xs" (click)="onDeleteRecipeImages(i)">Delete</button>
 						</div>
 					</div>
 				</div>
@@ -138,19 +140,18 @@
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 				<div class="form-group">
 					<label for="pwd">Add Video</label>
-					<input type="file" name="img[]" class="file">
+					<input type="file" name="img[]" class="file" #recipeVideo (change)="onRecipeVideo($event)">
 				</div>
 				<div class="input-group col-xs-12">
-					
 					<input type="text" class="form-control" disabled placeholder="Upload video">
 					<span class="input-group-btn">
-					<button class="browse btn mybtn" type="button"><i class="glyphicon glyphicon-search"></i> Browse</button>
+					<button class="browse btn mybtn" type="button" (click)="recipeVideo.click()"><i class="glyphicon glyphicon-search"></i> Browse</button>
 					</span>
 				</div>
-				<div class="row">
+				<div class="row" *ngIf="recipeVideos">
 					<div class="col-lg-6">
 						<div class="image-display">
-							<img src="assets/images/food2.jpg" class="img-responsive img-rounded" >
+							<video [src]="recipeVideos" class="img-responsive recipe-Video"></video>
 							<button type="button" class="btn btn-yellow btn-xs">Edit</button>
 							<button type="button" class="btn btn-black btn-xs">Delete</button>
 						</div>

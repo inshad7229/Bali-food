@@ -15,6 +15,10 @@ export class AddCategoryComponent implements OnInit {
  	}
 
 	onSubmit(){
-	  this.dialogRef.close()
+		let categoryData ={
+			categoryName:this.categoryNameEnglish,
+			categoryNameHerbew:this.categoryNameHerbew
+		}
+	 	this.dialogRef.close(categoryData);
 	}
 }
