@@ -14,8 +14,13 @@ export class InstructionsComponent implements OnInit {
   }
 
   onAdd(){
-    this.instructions.push(this.instruction);
-    this.instruction='';
+    if (this.instruction) {
+      // code...
+      this.instructions.push(this.instruction);
+      this.instruction='';
+    }else{
+      return 0;
+    }
   }
 
   onSubmit(){

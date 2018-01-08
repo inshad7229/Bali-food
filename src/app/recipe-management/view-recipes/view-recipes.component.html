@@ -11,11 +11,12 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <button type="button" class="btn btn-danger pull-right">Delete</button>
+                    <button type="button" class="btn btn-danger pull-right" (click)="deleteRecipe()" [disabled]="recipeIds.length<=0">Delete</button>
+                    <button type="button" class="btn btn-success pull-right" (click)="onSearchByUser()">Search By User</button>
                 </div>
             </div>
         </div>
-         <div class="row">
+        <div class="row" *ngIf="!noRecipeDiv">
             <div class="col-lg-12 col-md-12">
                 <div class="table-responsive">
                     <table class="table">
@@ -27,28 +28,39 @@
                                 <th  class="text-center">Level</th>
                                 <th class="text-center">Categories</th>
                                 <th  class="text-center">Duration</th>
-                                <th  class="text-center">Users</th>
-                                <th  class="text-center">Select Recipies <mat-checkbox></mat-checkbox></th>
+                                <th  class="text-center">Posted By</th>
+                                <th  class="text-center">Select Recipies </th>
+                                <th class="text-center">Action </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let recipe of recipeList;let i = index">
-                                <td><img [src]="getSafeContent(recipe.mainImage)" class="recipe-img"></td>
-                                <td class="text-center" (click)="onRecipe()">{{getValue(recipe.recipeTitle)}}</td>
+                            <tr *ngFor="let recipe of recipeList| paginate: { itemsPerPage: 4, currentPage: p };let i = index">
+                                <td><img [src]="getSafeContent(recipe.mainImage)" class="recipe-img" alt="http://placehold.it/100x100"></td>
+                                <td class="text-center" (click)="onRecipe(recipe)">{{getValue(recipe.recipeTitle)}}</td>
                                 <td  class="text-center">
                                     <i class="text-muted">{{getValue(recipe.level)}}</i>
                                 </td>
                                 <td class="text-center">{{getValue(recipe.categories)}}</td>
                         
                                 <td  class="text-center">{{getValue(recipe.duration)}}</td>
-                                 <td  class="text-center"><button class="btn btn-info btn-sm" (click)="onViewUsers()">View users</button></td>
+                                <!--  <td  class="text-center"><button class="btn btn-info btn-sm" (click)="onViewUsers()">View users</button></td> -->
+                                <td  class="text-center">{{getValue(recipe.userName)}}</td> 
                                 <td  class="text-center">
                                      <div class="check-box">
-                                         <mat-checkbox>Select </mat-checkbox>
+                                         <mat-checkbox (change)="onCheckbox(recipe._id)">Select </mat-checkbox>
                                     </div> 
+                                </td>
+                                <td>
+                                      <a href="javascript:void(0);" class="pull-right" (click)="onEditRecipe(recipe)">
+                                        <i class="material-icons">edit</i>
+                                    </a>
+                                    <a href="javascript:void(0);" class="pull-right" (click)="onRecipe(recipe)">
+                                        <i class="material-icons">remove_red_eye</i>
+                                    </a>
                                 </td>
                                 
                             </tr>
+
                          <!--    <tr>
                                 <td><img src="assets/images/food3.jpg" class="img-responsive img-circle doctor-picture"></td>
                                 <td class="text-center">Bubur Sum Sum</td>
@@ -128,7 +140,14 @@
                         </tbody>
                     </table>
                 </div>
+                <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
             </div>                   
+        </div>
+        <div *ngIf="noRecipeDiv">
+            <button class="btn btn-yellow" (click)="getRecipesList()"><i class="material-icons">keyboard_backspace</i>Back</button>
+            <div class="no-div" >
+                <div>No recipe found for selected User</div>
+            </div>
         </div>
     </div>
 </div>

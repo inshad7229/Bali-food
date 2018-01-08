@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogComponent } from '../dialogs/dialog/dialog.component';
 import { MatSnackBar } from '@angular/material';
 import { PasswordDialogComponent } from '../dialogs/password-dialog/password-dialog.component';
 import { UserManagementService } from '../user-mangement/user-management.service'
-
+import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
   selector: 'app-delete-user',
@@ -18,8 +18,11 @@ progressBar
 userid
 mode = 'indeterminate';
 userDetails;
-input
-  constructor(private userManagementService:UserManagementService,public dialog: MatDialog,private snackBar:MatSnackBar) { }
+input;
+p: number = 1;
+  constructor(public toastr: ToastsManager, vRef: ViewContainerRef,private userManagementService:UserManagementService,public dialog: MatDialog,private snackBar:MatSnackBar) {
+    this.toastr.setRootViewContainerRef(vRef);
+   }
 
   ngOnInit() {
   	this.getUserList()
@@ -45,7 +48,7 @@ input
     this.userManagementService.deleteUser(this.userid).subscribe(data=>{
       this.getUserList()
       this.progressBar=false;
-      this.openSnackBar('User Successfully deleted','');
+      this.toastr.success('User Successfully deleted', 'Success!');
     }),error=>{
       this.progressBar=false
     }

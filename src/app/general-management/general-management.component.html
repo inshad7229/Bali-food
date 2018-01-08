@@ -1,10 +1,13 @@
-<section class="example-section" *ngIf="progressBar">
+<!-- <section class="example-section" *ngIf="progressBar">
     <mat-progress-bar
       class="example-margin"
       [mode]="mode"
       >
     </mat-progress-bar>
-</section>
+</section> -->
+<div class="loader-box" *ngIf="progressBar" >
+    <img src="./assets/images/load.gif" class="img-responsive" />
+</div>
 <div class="main-content" >
     <div class="container-fluid">
         <div class="row">

@@ -38,44 +38,52 @@
                 <div class="collapse" id="recipeMangement" aria-expanded="false">
                     <ul class="nav">
                         <li routerLinkActive="active">
-                            <a routerLink="/dashboard/addRecipe" skipLocationChange='true' (click)="openDialog()">
+                            <a routerLink="/dashboard/addRecipe" skipLocationChange='true' >
                                 <span class="sidebar-normal">Add Recipe</span>
                             </a>
                         </li>
-                        <li routerLinkActive="active" class="{{activeUser}}" >
+                        <li routerLinkActive="active"  >
                             <a  routerLink="/dashboard/viewRecipes" >
-                                <span class="sidebar-normal">Recipes list</span>
+                                <span class="sidebar-normal">Recipe list</span>
                             </a>
                         </li>
-                        <li routerLinkActive="active" class="{{activeUser}}" >
+                        <li routerLinkActive="active" >
                             <a  routerLink="/dashboard/addCategories" >
-                                <span class="sidebar-normal">Categories Management</span>
+                                <span class="sidebar-normal">Category Management</span>
+                            </a>
+                        </li>
+                        <li routerLinkActive="active" >
+                            <a  routerLink="/dashboard/CommentManagement" >
+                                <span class="sidebar-normal">Comment Management</span>
                             </a>
                         </li>
                     </ul>
                 </div>
             </li>
             <li>
-                <a data-toggle="collapse" href="#generalManagement"  aria-expanded="false" (click)="openDialog()">
+                <a data-toggle="collapse" href="#generalManagement"  aria-expanded="false" >
                     <i class="material-icons">account_circle</i>
                     <p>General Management</p>
                 </a>
                 <div class="collapse" id="generalManagement" aria-expanded="false">
                     <ul class="nav">
                         <li routerLinkActive="active" >
-                            <a routerLink="/dashboard/aboutUsManagement" skipLocationChange='true' (click)="openDialog()">
+                            <a routerLink="/dashboard/aboutUsManagement"  >
                                 <span class="sidebar-normal">Manage About-Us</span>
                             </a>
                         </li>
                         <li routerLinkActive="active" >
-                            <a  (click)="openDialog()">
+                            <a routerLink="/dashboard/contactUs" >
                                 <span class="sidebar-normal">Manage Contact-us</span>
                             </a>
                         </li>
                         <li routerLinkActive="active" >
-                            <a  (click)="openDialog()">
+                            <a  routerLink="/dashboard/faq">
                                 <span class="sidebar-normal">Manage FAQ's</span>
                             </a>
+                            <!-- <a >
+                                <span class="sidebar-normal">Manage FAQ's</span>
+                            </a> -->
                         </li>
                     </ul>
                 </div>
@@ -87,7 +95,7 @@
                 </a>
             </li> -->
              <li routerLinkActive="active"  >
-                <a routerLink="/dashboard/reportManagement" skipLocationChange='true'  (click)="openDialog()">
+                <a routerLink="/dashboard/reportManagement" skipLocationChange='true'>
                     <i class="material-icons">report</i>
                     <p>Report Management</p>
                 </a>

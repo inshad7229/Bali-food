@@ -1,0 +1,40 @@
+<div class="main-content">
+    <div class="loader-box" *ngIf="loading" >
+    <img src="./assets/images/load.gif" class="img-responsive" />
+</div>
+
+<div id="page-wrapper">
+	<div class="container-fluid">
+		 <div class="row">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="recipe-name">
+                        <h1 class="main-head">Contact-Us Management</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-md-12 faqadjust" *ngFor="let contactUs of contactUsData">
+				<mat-accordion >
+				  <mat-expansion-panel>
+				    <mat-expansion-panel-header>
+				     	<span>From:</span>
+					    <span class="p-0-5">
+					     	{{contactUs.email}}
+					 	</span>
+				    </mat-expansion-panel-header>
+					<span>Message:</span> 
+					{{contactUs.message}}
+						<a href="javascript:void(0);" class="pull-right" >
+							<i class="material-icons" >delete_forever</i>
+	                    </a>
+	                    <a [href]="mailto(contactUs.email)" class="pull-right" style="margin-right: 5px" >
+							<i class="material-icons">reply</i>
+	                    </a>
+				  </mat-expansion-panel>
+				</mat-accordion>
+			</div>
+		</div>		
+	</div>
+</div>		

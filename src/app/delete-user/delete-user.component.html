@@ -1,14 +1,20 @@
-<section class="example-section" *ngIf="progressBar">
+<!-- <section class="example-section" *ngIf="progressBar">
       <mat-progress-bar
           class="example-margin"
           [mode]="mode"
           >
       </mat-progress-bar>
-</section>
+</section> -->
+
 <div class="main-content">
+    <div class="loader-box" *ngIf="progressBar" >
+    <img src="./assets/images/load.gif" class="img-responsive" />
+</div>
+<form autocomplete="off" role="presentation">
     <mat-form-field class="example-full-width">
-        <input matInput placeholder="Search"  type="search" (input)="searchUsers()" [(ngModel)]="input" >
+        <input matInput placeholder="Search"  type="search" (input)="searchUsers()" [(ngModel)]="input" [ngModelOptions]="{standalone: true}" >
     </mat-form-field>
+</form>
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 col-mat-12">
@@ -31,7 +37,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="text-center">
-                                    <tr *ngFor="let data of userData; let i = index ">
+                                    <tr *ngFor="let data of userData| paginate: { itemsPerPage: 6, currentPage: p }; let i = index ">
                                         <td>
                                             {{i+1}}.
                                         </td>
@@ -50,11 +56,14 @@
                                             <mat-slide-toggle (click)="onStatusButton(data)" *ngIf="data.status=='active'" checked='true' ></mat-slide-toggle >
                                         </td> -->
                                         <td>
-                                            <i class="material-icons" (click)="openDialog(data)">delete_forever</i>
+                                            <a href="javascript:void()">
+                                                <i class="material-icons" (click)="openDialog(data)">delete_forever</i>
+                                            </a>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
+                            <pagination-controls (pageChange)="p = $event" class="my-pagination"></pagination-controls>
                         </div>
                     </div>
                 </div>

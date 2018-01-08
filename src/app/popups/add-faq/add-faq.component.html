@@ -1,0 +1,46 @@
+<div class="popup popup-addlist">
+	<ul>
+		<li>
+			<div class="mainDiv">
+				<form class="example-form"  [formGroup]="complexForm" >  
+					<div style="text-align: center;">
+						<h3>
+							Add FAQ
+						</h3>
+					</div>
+					<div>
+						<mat-form-field>
+							<input type="text" name="question" matInput placeholder="Question*" [formControl]="complexForm.controls['question']" [(ngModel)]="question">
+						</mat-form-field>
+						<div style="color: #F44336" *ngIf="!complexForm.controls['question'].valid  && complexForm.controls['question'].touched">
+                                <div *ngIf="complexForm.controls['question'].errors.required">
+                                    *Question  Required
+                                </div>
+                        </div>
+						<!-- <mat-form-field>
+							<input type="text" name="catEng"  [formControl]="complexForm.controls['categoryNameEnglish']" matInput placeholder="Category Name English" [(ngModel)]="categoryNameEnglish">
+						</mat-form-field> -->
+						<!-- <div style="color: #F44336" *ngIf="!complexForm.controls['categoryNameEnglish'].valid  && complexForm.controls['categoryNameEnglish'].touched">
+                                <div *ngIf="complexForm.controls['categoryNameEnglish'].errors.required">
+                                    *Category Name Required
+                                </div>
+                        </div> -->
+					</div>
+					<div>
+						<mat-form-field>
+							<textarea type="text" name="answer" [formControl]="complexForm.controls['answer']" matInput placeholder="Answer*" [(ngModel)]="answer"></textarea>
+						</mat-form-field>
+						<div style="color: #F44336" *ngIf="!complexForm.controls['answer'].valid  && complexForm.controls['answer'].touched">
+                                <div *ngIf="complexForm.controls['answer'].errors.required">
+                                    *Answer  Required
+                                </div>
+                        </div>
+					</div>
+				</form>
+			</div>
+			<div class="text-center">				
+				<button type="button" [disabled]="!complexForm.valid" class="btn btn-success" (click)="onSubmit()" [disabled]="">Submit</button>
+			</div>
+		</li>
+	</ul>
+</div>

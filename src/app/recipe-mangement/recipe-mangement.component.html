@@ -4,80 +4,68 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="recipe-name">
-                         <h1 class="main-head">Bubur Sum Sum</h1>
+                         <h1 class="main-head">{{recipeData.recipeTitle}}</h1>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <button type="button" class="btn btn-primary pull-right">Edit</button>
-                    <button type="button" class="btn btn-danger pull-right">Delete</button>
+                    <!-- <button type="button" class="btn btn-primary pull-right">Edit</button> -->
+                    <button type="button" class="btn btn-danger pull-right" (click)="onDelete()">Delete</button>
                 </div>
             </div>
         </div>       
-        <div class="row">
+        <div class="row" *ngIf="recipeData">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="form-group heading">
                     <h3 class="mt0">Description</h3>
                 <p class="text-muted">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur.
-                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        
+                    {{recipeData.description}}  
                 </p>
-          
-                    <img src="./assets/images/balifoodBackground.jpg" class="img-responsive">
+                    <img [src]="getSafeContent(recipeData.mainImage)" class="img-responsive">
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="form-group">
-                    <p><b>Category</b><br>
-                      <span class="text-muted">Chicken </span>  
+                    <p><b>Categories</b><br>
+                      <span class="text-muted">{{recipeData.categories}} </span>  
                     </p>
                     <p><b>Meal Type</b><br>
-                   <span class="text-muted"> Kosher Meet</span>
+                   <span class="text-muted"> {{recipeData.mealType}} </span>
                     </p>
                     <p><b>Duration</b><br>
-                       <span class="text-muted">5 Minutes</span> 
+                       <span class="text-muted">{{recipeData.duration}}</span> 
                     </p>
                     <p>
                     <b>Level</b><br>
-                   <span class="text-muted">Easy</span>
+                   <span class="text-muted">{{recipeData.level}}</span>
                     </p>
 
                     <p>
                     <b>Ingredients</b><br>
                     <span class="text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur.
+                           {{recipeData.ingredients}}
                     </span>
-                    
                     </p>
 
                     <p>
                     <b>Instructions</b><br>
                     <span class="text-muted">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                            cillum dolore eu fugiat nulla pariatur.
+                           {{recipeData.instructions}}
                     </span>
                     </p>
                 </div>
                 
             </div>                   
         </div>
-        <div class="row">
-            <div class="col-lg-6">
+        <div class="row" >
+            <div class="col-lg-6" *ngIf="recipeData.recipeImages.length>0">
                 <h3>Recipe Images</h3>
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-4" *ngFor="let recipeImage of recipeData.recipeImages">
+                        <div class="recipe-images">                           
+                            <img [src]="getSafeContent(recipeImage)" class="img-responsive img-rounded">
+                        </div>
+                    </div>
+                    <!--  <div class="col-lg-4">
                         <div class="recipe-images">                           
                             <img src="assets/images/food2.jpg" class="img-responsive img-rounded">
                         </div>
@@ -101,20 +89,15 @@
                         <div class="recipe-images">                           
                             <img src="assets/images/food2.jpg" class="img-responsive img-rounded">
                         </div>
-                    </div>
-                     <div class="col-lg-4">
-                        <div class="recipe-images">                           
-                            <img src="assets/images/food2.jpg" class="img-responsive img-rounded">
-                        </div>
-                    </div>
+                    </div> -->
                 </div>   
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6" *ngIf="recipeData.videoUrl">
                 <h3>Recipe video</h3>
                 <div class="row">
-                    <div class="col-lg-6">
-                        <div class="recipe-images">                           
-                            <img src="assets/images/video.jpg" class="img-responsive img-rounded">
+                    <div class="col-lg-6" >
+                        <div class="recipe-images" >                           
+                            <video [src]="getSafeContent(recipeData.videoUrl)" class="img-responsive img-rounded" controls> </video>
                         </div>
                     </div>  
             </div>

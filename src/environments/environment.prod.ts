@@ -5,11 +5,11 @@ export interface Environment
 }
 
 export const DEV: Environment = {
-	endPoint:'http://localhost:8080/api/' 
+	endPoint:'http://localhost:5001/api/' 
 }
 
 export const PROD: Environment = {
-	endPoint:'http://ionicteam.com:8080/api/' 
+	endPoint:'http://ionicteam.com:5001/api/' 
 }
 export const environment: Environment= PROD;
 

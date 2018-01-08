@@ -1,10 +1,10 @@
-import { BalifoodAdminPage } from './app.po';
+import { AppPage } from './app.po';
 
-describe('balifood-admin App', () => {
-  let page: BalifoodAdminPage;
+describe('bali-food-admin App', () => {
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new BalifoodAdminPage();
+    page = new AppPage();
   });
 
   it('should display welcome message', () => {

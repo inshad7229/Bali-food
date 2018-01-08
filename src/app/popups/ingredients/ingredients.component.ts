@@ -15,8 +15,12 @@ export class IngredientsComponent implements OnInit {
   }
 
   onAdd(){
-    this.ingredients.push(this.ingredient);
-    this.ingredient='';
+    if (this.ingredient) {
+      this.ingredients.push(this.ingredient);
+      this.ingredient='';
+    }else{
+      return 0;
+    }
   }
 
   onSubmit(){

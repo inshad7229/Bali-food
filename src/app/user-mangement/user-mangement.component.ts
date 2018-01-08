@@ -24,6 +24,7 @@ activeAccounts;
 deactiveAccountsDiv:boolean=false;
 activeAccountDiv:boolean=false;
 allUsersDiv:boolean=true;
+p: number = 1;
 
   constructor(private userManagementService:UserManagementService,public dialog: MatDialog,private snackBar:MatSnackBar) { }
 

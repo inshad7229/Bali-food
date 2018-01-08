@@ -2,29 +2,29 @@
 <div class="container-fluid">
 	<h1 class="main-head">Create New Recipe</h1>
 	<div class="row">
-		<form role="form" >
+		<form role="form" [formGroup]="complexForm">
 			<div class="col-lg-6">
 				<div class="row">
 					<div id="main-img">
 						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-							<div class="wrap-main">
+							<div class="wrap-main image-setter">
 								<img [src]="mainImage" class="img-responsive img-rounded" *ngIf="mainImage">
 								<img src='http://placehold.it/350x350' *ngIf="!mainImage">
 							</div>	
 							<div class="form-group add-main-image">
 								<label for="pwd">Add Main Image</label>
-								<input type="file" name="img[]" class="file" #fileImage (change)="onMainImage($event)">
+								<input type="file" name="img[]" accept="image/*" class="file" #fileImage (change)="onMainImage($event)">
 							</div>
 							<div class="input-group col-xs-12">
 								<!-- <span class="input-group-addon"><i class="fa fa-file-image-o"></i></span> -->
 								<input type="text" class="form-control" disabled placeholder="Upload image">
 								<span class="input-group-btn">
-								<button class="browse btn  all-btns" type="button" (click)="fileImage.click()"><i class="glyphicon glyphicon-search"></i> Browse</button>
+								<button class="browse btn  all-btns btn-yellow" type="button" (click)="fileImage.click()"><i class="glyphicon glyphicon-search"></i> Browse</button>
 								</span>
 							</div>
 							<div class="row">
 								<div class="col-lg-6">
-									<div class="image-main">								
+									<div class="image-main" *ngIf="mainImage">								
 										<button type="button" class="btn btn-yellow btn-sm" (click)="fileImage.click()">Edit</button>
 										<button type="button" class="btn btn-black btn-sm" (click)="onDeleteMainImage()">Delete</button>
 									</div>
@@ -38,77 +38,146 @@
 				<div class="form-group">
 					<!-- <label>Title</label> -->
 					<mat-form-field>
-						<input type="text" matInput placeholder="Enter title" name="title" [(ngModel)]="recipeModel.recipeTitle">
+						<input type="text" matInput placeholder="Enter title*" name="title" [(ngModel)]="recipeModel.recipeTitle" [formControl]="complexForm.controls['title']" >
 					</mat-form-field>
+					<div style="color: #F44336" *ngIf="!complexForm.controls['title'].valid  && ( complexForm.controls['title'].touched)">
+                        <div *ngIf="complexForm.controls['title'].errors.required">
+                            *required
+                        </div>
+                    </div>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 				<div class="form-group">
-					<label>Duration</label>
-					<!-- <ngb-timepicker [(ngModel)]="time"></ngb-timepicker> -->
-					<ngx-time-picker [(selectedTime)]="timeExample"></ngx-time-picker>
-					<!-- <time-duration-picker [inputDisabled]=false returnedValueUnit="second" (onChange)="onNumberChanged($event)" class="row">
- 						<time-duration-picker-unit class="col-md-12" [name]="'second'"></time-duration-picker-unit>
-					</time-duration-picker> -->
+					<label>Duration*</label>
+					<ngb-timepicker [(ngModel)]="duration" name ="duration" [spinners]="OFF" [formControl]="complexForm.controls['duration']" (keyup)="timePicker($event)"></ngb-timepicker>
+					<div style="color: #F44336" *ngIf="!complexForm.controls['duration'].valid  && ( complexForm.controls['duration'].touched)">
+                        <div *ngIf="complexForm.controls['duration'].errors.required">
+                            *required
+                        </div>
+                    </div>
+                    <div style="color: #F44336" *ngIf="durationValidation">
+                        *only numbers are acceptable
+                    </div>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 				<div class="form-group level">
 					<!-- <label>Level</label> -->
 					<mat-form-field class="">   
-                        <mat-select placeholder="Level"  name="level" [(ngModel)]="recipeModel.level">
+                        <mat-select placeholder="Level*"  name="level" [(ngModel)]="recipeModel.level" [formControl]="complexForm.controls['level']">
                             <mat-option value="Easy"> Easy </mat-option>
                             <mat-option value="Medium"> Medium </mat-option>
                             <mat-option value="Hard"> Hard </mat-option>
                         </mat-select>
                     </mat-form-field>
+                    <div style="color: #F44336" *ngIf="!complexForm.controls['level'].valid  && ( complexForm.controls['level'].touched)">
+                        <div *ngIf="complexForm.controls['level'].errors.required">
+                            *required
+                        </div>
+                    </div>
 				</div>
 			</div>			
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 				<div class="form-group">
 					<!-- <label>Meal Type</label> -->
 					<mat-form-field>   
-                        <mat-select placeholder="MealType" name="mealType" [(ngModel)]="recipeModel.mealType" >
+                        <mat-select placeholder="MealType*" name="mealType" [(ngModel)]="recipeModel.mealType" [formControl]="complexForm.controls['mealType']">
                             <mat-option value="Kosher Meet"> Kosher Meet </mat-option>
                             <mat-option value="Kosher Dairy"> Kosher Dairy </mat-option>
                             <mat-option value="Kosher Parve"> Kosher Parve </mat-option>
                             <mat-option value="Not Kosher Meet"> Not Kosher Meet </mat-option>
                             <mat-option value="Not Kosher Dairy"> Not Kosher Dairy </mat-option>
                             <mat-option value="Not Kosher Veg"> Not Kosher Veg </mat-option>
-                        </mat-select>
+                        </mat-select> 
                     </mat-form-field>
+                    <div style="color: #F44336" *ngIf="!complexForm.controls['mealType'].valid  && ( complexForm.controls['mealType'].touched)">
+	                        <div *ngIf="complexForm.controls['mealType'].errors.required">
+	                            *required
+	                        </div>
+                   	</div>
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 				<div class="form-group" >
-					<label>Description</label>
+					<label>Description*</label>
 					<mat-form-field>
-						<textarea matInput rows="2" name="description" [(ngModel)]="recipeModel.description"></textarea>
+						<textarea matInput rows="2" name="description" [(ngModel)]="recipeModel.description" [formControl]="complexForm.controls['description']"></textarea>
 					</mat-form-field>
+					<div style="color: #F44336" *ngIf="!complexForm.controls['description'].valid  && ( complexForm.controls['description'].touched)">
+	                        <div *ngIf="complexForm.controls['description'].errors.required">
+	                            *required
+	                        </div>
+                    </div>
 				</div>
 			</div>
-			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+	<!-- 		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 				<div class="form-group instructions" (click)="addIngredient()">
 					<mat-form-field>
-						<input type="" name="" placeholder="Ingredients" matInput  rows="2" [(ngModel)]="ingredients" name="ingredients">
+						<input  type="readonly" name="" placeholder="Ingredients" matInput  rows="2" [(ngModel)]="ingredients" name="ingredients"  [formControl]="complexForm.controls['ingredients']">
 					</mat-form-field>
+					<div style="color: #F44336" *ngIf="!complexForm.controls['ingredients'].valid  && ( complexForm.controls['ingredients'].touched)">
+	                        <div *ngIf="complexForm.controls['ingredients'].errors.required">
+	                            required
+	                        </div>
+                    </div>
 				</div>
-			</div>
+			</div> -->
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-				<div class="form-group instructions" (click)="addInstructions()" >
+				<mat-form-field class="demo-chip-list">
+					<mat-chip-list #chipList>
+					    <mat-chip *ngFor="let ingredient of ingredients" [selectable]="selectable"
+					             [removable]="removable" >
+					      {{ingredient}}
+					      <i class="material-icons" *ngIf="removable" (click)="remove(ingredient)">cancel</i>
+					    </mat-chip>
+					 </mat-chip-list>
+					 <input  placeholder="Ingredients" [matChipInputFor]="chipList" (click)="addIngredient()" readonly  name="ingredients">
+				</mat-form-field>
+			</div>
+
+			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<!-- <div class="form-group instructions" (click)="addInstructions()" >
 					<mat-form-field>
-						<input type="" name="" placeholder="Instructions" matInput  rows="2"  [(ngModel)]="instructions" name="instructions">
+						<input type="readonly" name="" placeholder="Instructions" matInput  rows="2"  [(ngModel)]="instructions" name="instructions" [formControl]="complexForm.controls['instructions']">
+					</mat-form-field>
+					<div style="color: #F44336" *ngIf="!complexForm.controls['instructions'].valid  && ( complexForm.controls['instructions'].touched)">
+	                        <div *ngIf="complexForm.controls['instructions'].errors.required">
+	                            required
+	                        </div>
+                    </div>
+				</div> -->
+				<mat-form-field class="demo-chip-list">
+					<mat-chip-list #chipList1>
+					    <mat-chip *ngFor="let instruction of instructions" [selectable]="selectable"
+					             [removable]="removable" >
+					      {{instruction}}
+					      <i class="material-icons" *ngIf="removable" (click)="removeInstructions(instruction)">cancel</i>
+					    </mat-chip>
+					 </mat-chip-list>
+					 <input  placeholder="Instructions" [matChipInputFor]="chipList1" (click)="addInstructions()" readonly  name="ingredients">
+				</mat-form-field>
+			</div>
+			<!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+				<div class="form-group">
+					<mat-form-field>
+						<input type="text" matInput placeholder="Enter title*" name="title" [(ngModel)]="recipeModel.recipeTitle" [formControl]="complexForm.controls['title']" >
 					</mat-form-field>
 				</div>
-			</div>
+			</div> -->
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 				<div class="form-group">
 					<!-- <label>Categories</label> -->
 					 <mat-form-field class="categotries" *ngIf="categoryList">   
-                        <mat-select placeholder="categotries" name="category">
-                            <mat-option *ngFor="let category of categoryList" value="Easy">{{category.categoryName}} </mat-option>
+                        <mat-select placeholder="categories*" name="category" [(ngModel)]="recipeModel.categories" [formControl]="complexForm.controls['category']">
+                            <mat-option *ngFor="let category of categoryList" [value]="category.categoryName">{{category.categoryName}} </mat-option>
                         </mat-select>
                     </mat-form-field>
+                    <div style="color: #F44336" *ngIf="!complexForm.controls['category'].valid  && ( complexForm.controls['category'].touched)">
+	                        <div *ngIf="complexForm.controls['category'].errors.required">
+	                            *required
+	                        </div>
+                    </div>
 				</div>
 			</div><br>
 			
@@ -117,21 +186,24 @@
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 				<div class="form-group">
-					<label for="pwd">Add images</label>
-					<input type="file" multiple name="img[]" class="file" #multipleImages (change)="onRecipeImages($event)">
+					<label for="pwd">Add Recipe images</label>
+					<input type="file" multiple name="img[]"  accept="image/*" class="file" #multipleImages (change)="onRecipeImages($event)">
+					<div style="display: none;">
+						<input type="file" name="img[]"  accept="image/*" class="file" #toEditMutipleImages (change)="onEditRecipeImages($event)">
+					</div>
 				</div>
 				<div class="input-group col-xs-12">
 					
 					<input type="text" class="form-control" disabled placeholder="Upload Image">
 					<span class="input-group-btn">
-					<button class="browse btn  all-btns" type="button" (click)="multipleImages.click()"><i class="glyphicon glyphicon-search"></i> Browse</button>
+					<button class="browse btn  all-btns btn-yellow" type="button" (click)="multipleImages.click()"><i class="glyphicon glyphicon-search"></i> Browse</button>
 					</span>
 				</div>
 				<div class="row" *ngFor="let recipeImage of recipeImages;let i=index" >
 					<div class="col-lg-6">
 						<div class="image-display">
 							<img [src]="recipeImage" class="img-responsive img-rounded" >
-							<button type="button" class="btn btn-yellow btn-xs">Edit</button>
+							<button type="button" class="btn btn-yellow btn-xs" (click)="onEdit(toEditMutipleImages,i)">Edit</button>
 							<button type="button" class="btn btn-black btn-xs" (click)="onDeleteRecipeImages(i)">Delete</button>
 						</div>
 					</div>
@@ -139,28 +211,28 @@
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 				<div class="form-group">
-					<label for="pwd">Add Video</label>
-					<input type="file" name="img[]" class="file" #recipeVideo (change)="onRecipeVideo($event)">
+					<label for="pwd">Add Recipe Video</label>
+					<input type="file" name="img[]" class="file" accept="video/*" #recipeVideo (change)="onRecipeVideo($event)">
 				</div>
 				<div class="input-group col-xs-12">
 					<input type="text" class="form-control" disabled placeholder="Upload video">
 					<span class="input-group-btn">
-					<button class="browse btn mybtn" type="button" (click)="recipeVideo.click()"><i class="glyphicon glyphicon-search"></i> Browse</button>
+					<button class="browse btn mybtn btn-yellow" type="button" (click)="recipeVideo.click()"><i class="glyphicon glyphicon-search"></i> Browse</button>
 					</span>
 				</div>
 				<div class="row" *ngIf="recipeVideos">
 					<div class="col-lg-6">
 						<div class="image-display">
 							<video [src]="recipeVideos" class="img-responsive recipe-Video"></video>
-							<button type="button" class="btn btn-yellow btn-xs">Edit</button>
-							<button type="button" class="btn btn-black btn-xs">Delete</button>
+							<button type="button" class="btn btn-yellow btn-xs" (click)="recipeVideo.click()">Edit</button>
+							<button type="button" class="btn btn-black btn-xs" (click)="onDeleteRecipeVideo()">Delete</button>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="col-lg-12">
-				<button type="submit" class="btn btn-yellow" (click)="onPostAs()">Post as</button>
-				<button type="reset" class="btn btn-black">Reset Button</button>	
+				<button type="submit" class="btn btn-yellow" (click)="onPostAs()" [disabled]="!complexForm.valid">Post as</button>
+				<button type="reset" class="btn btn-black" (click)="onResetButton()">Reset Button</button>	
 			</div>
 	</div>
 	</div>

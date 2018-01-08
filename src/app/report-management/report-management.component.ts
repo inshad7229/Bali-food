@@ -81,6 +81,8 @@ export class ReportManagementComponent implements OnInit {
       let obj=dummy[i]
          delete(obj['password'])
          delete(obj['__v'])
+         delete(obj['profileImage'])
+         delete(obj['userId'])
          obj['registerationDate']=obj['registerationDate'].split('T')[0]
          local.push(obj)
       }

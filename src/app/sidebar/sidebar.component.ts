@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PerfectScrollbarModule } from 'angular2-perfect-scrollbar';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogComponent } from '../dialogs/dialog/dialog.component';
 import { MatSnackBar } from '@angular/material';

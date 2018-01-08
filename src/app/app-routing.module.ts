@@ -11,13 +11,17 @@ import { ContentManagementComponent } from './content-management/content-managem
 import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { ViewRecipesComponent } from './recipe-management/view-recipes/view-recipes.component';
 import { AddRecipeComponent } from './recipe-management/add-recipe/add-recipe.component';
-import { AddCategoriesComponent } from './recipe-management/add-categories/add-categories.component'
+import { AddCategoriesComponent } from './recipe-management/add-categories/add-categories.component';
+import { FaqComponent} from './faq/faq.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { CommentManagementComponent } from './recipe-management/comment-management/comment-management.component';
+import { AuthGuard } from './security/auth.guard';
 
 const routes: Routes = [
 	{ path: '', redirectTo: '/login', pathMatch: 'full' },
  	{ path: 'login', component:LoginComponentComponent},
  	{ path: 'dashboard',component:DashboardComponent, children: [
-      { path: '', component: UserMangementComponent },
+      { path: '', component: UserMangementComponent ,},
       { path: 'userMangement',     component:UserMangementComponent },
       { path: 'recipeMangement',   component:RecipeMangementComponent },
       { path: 'reportManagement',  component:ReportManagementComponent },
@@ -25,9 +29,12 @@ const routes: Routes = [
       { path: 'contentManagement', component:ContentManagementComponent },
       { path: 'deleteUser',        component:DeleteUserComponent},
       { path: 'viewRecipes',       component:ViewRecipesComponent},
-      { path: 'addRecipe',       component:AddRecipeComponent},
-      { path: 'addCategories',       component:AddCategoriesComponent}
-
+      { path: 'addRecipe',         component:AddRecipeComponent},
+      { path: 'addRecipe/:id',     component:AddRecipeComponent},
+      { path: 'addCategories',     component:AddCategoriesComponent},
+      { path: 'faq',               component:FaqComponent},
+      { path: 'contactUs',         component:ContactUsComponent},
+      { path: 'CommentManagement', component:CommentManagementComponent}
     ]},
  	{ path: 'footer', component:FooterComponent}
  

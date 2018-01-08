@@ -1,11 +1,14 @@
 
-<section class="example-section" *ngIf="progressBar">
+<!-- <section class="example-section" *ngIf="progressBar">
   <mat-progress-bar
       class="example-margin"
       [mode]="mode"
       >
   </mat-progress-bar>
-</section>
+</section> -->
+<div class="loader-box" *ngIf="progressBar" >
+    <img src="./assets/images/load.gif" class="img-responsive" />
+</div>
 <div class="button-container-right">
   <button class="btn btn-black" (click)="generateReport()">Export as csv</button>
   <button class="btn btn-black" (click)="onGeneratePdf()">Export as pdf</button>

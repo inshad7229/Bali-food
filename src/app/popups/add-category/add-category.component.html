@@ -2,19 +2,44 @@
 	<ul>
 		<li>
 			<div class="mainDiv">
-				<div class="innerDivLeft">
-					<mat-form-field>
-						<input type="text" name="" matInput placeholder="Category Name English" [(ngModel)]="categoryNameEnglish">
-					</mat-form-field>
-				</div>
-				<div class="innerDivRight">
-					<mat-form-field>
-						<input type="text" name="" matInput placeholder="Category Name Herbew" [(ngModel)]="categoryNameHerbew">
-					</mat-form-field>
-				</div>
+				<form class="example-form" [formGroup]="complexForm">  
+					<div class="image-container">
+						<h4>Add Category Image</h4>
+						<div class="image-div">
+							<div style="display: none;">
+								<input type="file" name="img[]"  accept="image/*" class="file" #categoryImage (change)="onCategoryImage($event)" >
+							</div>
+							<img src="http://placehold.it/400x200" class="img-responsive" (click)="categoryImage.click()" *ngIf="!categoryPlaceHolderImage">
+							<img [src]="categoryPlaceHolderImage" class="img-responsive" (click)="categoryImage.click()" *ngIf="categoryPlaceHolderImage">
+                            <div *ngIf="showError" style="color: #F44336">
+                                * Please Add Category Image 
+                            </div>
+						</div>
+					</div>
+					<div class="innerDivLeft">
+						<mat-form-field>
+							<input type="text" name="catEng"  [formControl]="complexForm.controls['categoryNameEnglish']" matInput placeholder="Category Name English" [(ngModel)]="categoryNameEnglish">
+						</mat-form-field>
+						<div style="color: #F44336" *ngIf="!complexForm.controls['categoryNameEnglish'].valid  && complexForm.controls['categoryNameEnglish'].touched">
+                                <div *ngIf="complexForm.controls['categoryNameEnglish'].errors.required">
+                                    *Category Name Required
+                                </div>
+                        </div>
+					</div>
+					<div class="innerDivRight">
+						<mat-form-field>
+							<input type="text" name="catHer" matInput placeholder="Category Name Herbew" [(ngModel)]="categoryNameHerbew" [formControl]="complexForm.controls['categoryNameHerbew']" >
+						</mat-form-field>
+						<div style="color: #F44336" *ngIf="!complexForm.controls['categoryNameHerbew'].valid  && complexForm.controls['categoryNameHerbew'].touched">
+                                <div *ngIf="complexForm.controls['categoryNameHerbew'].errors.required">
+                                   *Category Name Required
+                                </div>
+                        </div>
+					</div>
+				</form>
 			</div>
 			<div class="text-center">				
-				<button type="button" class="btn btn-success" (click)="onSubmit()">Submit</button>
+				<button type="button" [disabled]="!complexForm.valid" class="btn btn-success" (click)="onSubmit()">Submit</button>
 			</div>
 		</li>
 	</ul>

@@ -11,7 +11,13 @@ export class PasswordDialogComponent implements OnInit {
 password;
 errDiv=false;
 agree=false;
-  constructor(private snackBar:MatSnackBar,public dialogRef: MatDialogRef<PasswordDialogComponent>,@Inject(MAT_DIALOG_DATA) public data: any) { }
+  constructor(private snackBar:MatSnackBar,public dialogRef: MatDialogRef<PasswordDialogComponent>,@Inject(MAT_DIALOG_DATA) public data: any) {
+    if (data) {
+      if (data.from=="deletecategory") {
+        this.agree=true;
+      }
+    }
+   }
 
   ngOnInit() {
   }

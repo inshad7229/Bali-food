@@ -1,0 +1,106 @@
+<div class="popup dialog-container" *ngIf="message=='forDeleteRecipe'">
+	<div class="dialog-message">
+		<p>Are you sure?</p>
+		<p>you want to delete this Recipe</p>
+	</div>
+	<div class="dialog-button-container">
+		<div class="left-button">
+			<a  class="btn btn-yellow theme-color" (click)="onYes()" >
+		        <span class="">Delete</span>
+		        <div class="ripple-container"></div>
+	    	</a> 
+		</div>
+		<div class="right-button">
+			<a  class="btn btn-black" (click)="onCancel()">
+		        <span class="">Cancel</span>
+		        <div class="ripple-container"></div>
+		    </a>
+		</div>
+	</div>
+</div>
+
+<div class="popup dialog-container" *ngIf="message=='forDeleteCategory'">
+	<div class="dialog-message">
+		<p>Are you sure?</p>
+		<p>you want to delete this category</p>
+	</div>
+	<div class="dialog-button-container">
+		<div class="left-button">
+			<a  class="btn btn-yellow" (click)="onYes()" >
+		        <span class="">Delete</span>
+		        <div class="ripple-container"></div>
+	    	</a> 
+		</div>
+		<div class="right-button">
+			<a  class="btn btn-black" (click)="onCancel()">
+		        <span class="">Cancel</span>
+		        <div class="ripple-container"></div>
+		    </a>
+		</div>
+	</div>
+</div>
+
+<div class="popup dialog-container" *ngIf="message=='forLogout'">
+	<div class="dialog-message">
+		<p>Are you sure?</p>
+		<p>you want to Logout</p>
+	</div>
+	<div class="dialog-button-container">
+		<div class="left-button">
+			<a  class="btn btn-yellow" (click)="onYes()" >
+		        <span class="">Logout</span>
+		        <div class="ripple-container"></div>
+	    	</a> 
+		</div>
+		<div class="right-button">
+			<a  class="btn btn-black" (click)="onCancel()">
+		        <span class="">Cancel</span>
+		        <div class="ripple-container"></div>
+		    </a>
+		</div>
+	</div>
+</div>
+
+<div class="popup dialog-container" *ngIf="message=='FaqDelete'">
+	<div class="dialog-message">
+		<p>Are you sure?</p>
+		<p>you want to delete this FAQ</p>
+	</div>
+	<div class="dialog-button-container">
+		<div class="left-button">
+			<a  class="btn btn-yellow" (click)="onYes()" >
+		        <span class="">Delete</span>
+		        <div class="ripple-container"></div>
+	    	</a> 
+		</div>
+		<div class="right-button">
+			<a  class="btn btn-black" (click)="onCancel()">
+		        <span class="">Cancel</span>
+		        <div class="ripple-container"></div>
+		    </a>
+		</div>
+	</div>
+</div>
+
+<div class="popup dialog-container" *ngIf="message=='deleteComment'">
+	<div class="dialog-message">
+		<p>Are you sure?</p>
+		<p>you want to delete this Comment</p>
+	</div>
+	<div class="dialog-button-container">
+		<div class="left-button">
+			<a  class="btn btn-yellow" (click)="onYes()" >
+		        <span class="">Delete</span>
+		        <div class="ripple-container"></div>
+	    	</a> 
+		</div>
+		<div class="right-button">
+			<a  class="btn btn-black" (click)="onCancel()">
+		        <span class="">Cancel</span>
+		        <div class="ripple-container"></div>
+		    </a>
+		</div>
+	</div>
+</div>
+
+
